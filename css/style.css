@@ -1,0 +1,50 @@
+:root {
+  --color-bg: #f7e8e8; /*background colour*/
+  --color-surface: #fffaf7; 
+  --color-primary: #b88993; /*main colour*/
+  --color-primary-dark: #7a4d57; /*main colour but darker for potential shaidng*/
+  --color-text: #221818; 
+  --color-muted: #6f5e62;
+  --color-border: #ead1d6;
+
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --radius-lg: 1.5rem; /*rounded corners*/
+  /*using rem not px*/
+
+  .card-grid {
+    display: flex;
+    gap: var(--space-md);
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  
+  .card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-card {
+    flex: 0 0 16rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+    scroll-snap-align: start;
+
+  }
+
+  .section {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .section h2{
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+  }
+
+}
