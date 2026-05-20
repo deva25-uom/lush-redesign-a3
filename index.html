@@ -10,70 +10,136 @@
 
     <body>
         <header class="site-header">
-            <a class="logo" href="index.html">Lush Skin & Body</a>
-            
+            <a class="logo" href="index.html">lush*</a>
+
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="booking.html">Booking</a> 
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <label class="sr-only" for="site-search">Search services</label>
+                    <input id="site-search" type="search" placeholder="Search...">
+                </form>
+                
+                <a class="cart-link" href="cart.html" aria-label="View cart">🛒</a>
+                <button class="menu-button" type="button" aria-label="Open menu">☰</button>
+            </div>
         </header>
 
         <main>
             <section class="hero">
-                <p class="eyebrow">Melbourne beauty and wellness clinic</p>
-
-                <h1>Find the right treatment without feeling overwhelmed.</h1>
-
-                <p class="hero-text">
-                    Browse facials, spa treatments, nails, body services,
-                    and massage in one clear booking flow.
-                </p>
-
-                <div class="hero-actions">
+                <div class="hero-content">
+                    <h1>Skin and body care, simplified.</h1>
+                    <p>Book trusted treatments with clarity and confidence.</p>
                     <a class="btn btn-primary" href="services.html">Explore Services</a>
-                    <a class="btn btn-secondary" href="booking.html">View Booking Cart</a>
+                </div>
+            </section>
+            
+            <section class="section category-section">
+                <h2>Browse by Category</h2>
+                
+                <div class="card-grid">
+                    <article class="category-card">
+                        <div class="category-image image-facials"></div>
+                        <h3>Facials</h3>
+                        <p>From $80</p>
+                        <a href="services.html" class="card-link">View Services</a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-image image-body"></div>
+                        <h3>Body</h3>
+                        <p>From $120</p>
+                        <a href="services.html" class="card-link">View Services</a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-image image-massage"></div>
+                        <h3>Massage</h3>
+                        <p>From $129</p>
+                        <a href="services.html" class="card-link">View Services</a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-image image-nails"></div>
+                        <h3>Nails</h3>
+                        <p>From $59</p>
+                        <a href="services.html" class="card-link">View Services</a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-image image-beauty"></div>
+                        <h3>Beauty</h3>
+                        <p>Brows, lashes and waxing</p>
+                        <a href="services.html" class="card-link">View Services</a>
+                    </article>
                 </div>
             </section>
 
-
-            <section class="section">
-                <h2>Browse by Category</h2>
-
-                <div class="card-grid">
-                    <article class="service-card">
-                        <h3>Facials</h3>
-                        <p>Hydrafacials, spa facials, treatment facials, and skin maintenance.</p>
-                        <a href="services.html" class="card-link">View treatments</a>
-                    </article>
-
-                    <article class="service-card">
-                        <h3>Spa & Body</h3>
-                        <p>Body treatments, relaxing packages, and full wellness experiences.</p>
-                        <a href="services.html" class="card-link">View treatments</a>
-                    </article>
-
-                    <article class="service-card">
-                        <h3>Nails & Beauty</h3>
-                        <p>Mani-Pedis, brows, lashes, waxing, and beauty maintenance.</p>
-                        <a href="services.html" class="card-link">View treatments</a>
-                    </article>
-
-                    <article class="service-card">
-                        <h3>Massage</h3>
-                        <p>Relaxation focused services for stress relief and body care.</p>
-                        <a href="services.html" class="card-link">View treatments</a>
-                    </article>
-
+            <section class="about-section" id="about">
+                <div class="about-content">
+                    <p class="eyebrow">Melbourne beauty destination</p>
+                    <h2>Unwind, restore, and rejuvenate at Melbourne’s one-stop beauty, skin and spa destination.</h2>
+                    <p>
+                        Explore calming treatments, compare services, and build a booking that suits your needs.
+                    </p>
+                    <a class="btn btn-secondary" href="cart.html">Book Now</a>
                 </div>
-            </section>         
+
+                <div class="about-image"></div>
+            </section>
+
+            <section class="section reviews-section">
+                <h2>What customers say</h2>
+
+                <div class="review-grid">
+                    <article class="review-card">
+                        <p>“The booking flow felt simple, calm, and easy to follow.”</p>
+                        <strong>— Mia</strong>
+                    </article>
+
+                    <article class="review-card">
+                        <p>“I liked being able to compare treatments before adding them to my booking.”</p>
+                        <strong>— Sarah</strong>
+                    </article>
+
+                    <article class="review-card">
+                        <p>“The service cards made it easier to understand what each treatment was for.”</p>
+                        <strong>— Anika</strong>
+                    </article>
+                </div>
+            </section>
         </main>
 
-        <footer class="site-footer">
-        <p>2026 Lush Skin & Body redesign prototype.</p>
-        <p>Created for INFO20005 Assignment 3.</p>
+        <footer class="site-footer" id="contact">
+            <div>
+                <h2>lush*</h2>
+                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
+            </div>
+
+            <div>
+                <h3>Our stores</h3>
+                <p>Melbourne: CBD</p>
+                <p>Perth: WA</p>
+            </div>
+
+            <div>
+                <h3>Clinic hours</h3>
+                <p>Mon–Fri: 9am–5pm</p>
+                <p>Saturday: By appointment</p>
+            </div>
+
+            <div>
+                <h3>Socials</h3>
+                <p>Instagram · TikTok · Facebook</p>
+            </div>
         </footer>
 
+        
+        <script src="js/script.js"></script>
     </body>
 
 </html> 
