@@ -10,7 +10,9 @@
 
     <body>
         <header class="site-header">
-            <a class="logo" href="index.html">lush*</a>
+            <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
+                <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
+            </a>
 
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="services.html">Services</a>
@@ -20,11 +22,11 @@
 
             <div class="header-actions">
                 <form class="search-form" role="search">
-                    <label class="sr-only" for="site-search">Search services</label>
+                    <label class="sr-only" for="site-search">Search icon</label>
                     <input id="site-search" type="search" placeholder="Search...">
                 </form>
                 
-                <a class="cart-link" href="cart.html" aria-label="View cart">🛒</a>
+                <a class="cart-link" href="cart.html" aria-label="View cart">Cart icon</a>
                 <button class="menu-button" type="button" aria-label="Open menu">☰</button>
             </div>
         </header>
@@ -82,7 +84,12 @@
             <section class="about-section" id="about">
                 <div class="about-content">
                     <p class="eyebrow">Melbourne beauty destination</p>
-                    <h2>Unwind, restore, and rejuvenate at Melbourne’s one-stop beauty, skin and spa destination.</h2>
+
+                    <h2>
+                        Unwind, restore, and rejuvenate at Melbourne’s
+                        one-stop beauty, skin and spa destination.
+                    </h2>
+
                     <p>
                         Explore calming treatments, compare services, and build a booking that suits your needs.
                     </p>
@@ -116,14 +123,11 @@
 
         <footer class="site-footer" id="contact">
             <div>
-                <h2>lush*</h2>
-                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
-            </div>
-
-            <div>
                 <h3>Our stores</h3>
-                <p>Melbourne: CBD</p>
-                <p>Perth: WA</p>
+                <p>Shop 2, 107 Hazel Glen Drive</p>
+                <p>Doreen, VIC 3754</p>
+                <p>176 Scarborough Beach Road</p>
+                <p>Mount Hawthorn, WA 6016</p>
             </div>
 
             <div>
@@ -136,10 +140,15 @@
                 <h3>Socials</h3>
                 <p>Instagram · TikTok · Facebook</p>
             </div>
+
+            <div>
+                <h2>Lush</h2>
+                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
+            </div>
         </footer>
 
-        
         <script src="js/script.js"></script>
+
     </body>
 
 </html> 
