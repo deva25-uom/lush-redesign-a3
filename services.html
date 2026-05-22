@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Services | Lush Skin & Body Redesign</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header class="site-header">
+            <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
+                <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="services.html" class="active-link"><strong>Services</strong></a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <label class="sr-only" for="site-search">Search services</label>
+                    <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
+                    <input id="site-search" type="search" placeholder="Search services...">
+                </form>
+
+                <a class="cart-link" href="cart.html" aria-label="View cart">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                        <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                </a>
+
+                <button class="menu-button" type="button" aria-label="Open menu">☰</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-hero services-hero">
+                <h1>Choose treatments without the clutter.</h1>
+                <p>
+                    Browse facials, body treatments, massage, nails and beauty services in one clear flow.
+                </p>
+            </section>
+
+            <section class="section service-list-section">
+                <div class="service-toolbar">
+                    <h2>All services</h2>
+
+                    <div class="filter-row" aria-label="Service filters">
+                        <button class="filter-chip active" type="button">All</button>
+                        <button class="filter-chip" type="button">Facials</button>
+                        <button class="filter-chip" type="button">Body</button>
+                        <button class="filter-chip" type="button">Massage</button>
+                        <button class="filter-chip" type="button">Nails</button>
+                        <button class="filter-chip" type="button">Beauty</button>
+                    </div>
+                </div>
+
+                <div class="service-grid">
+                    <article class="treatment-card">
+                        <div class="treatment-image image-facials"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Facials</p>
+                            <h3>Hydrafacial</h3>
+                            <p>Deep cleanse, exfoliation and hydration for glowing skin.</p>
+                            <div class="treatment-meta">
+                                <span>From $149</span>
+                                <span>60 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="treatment-card">
+                        <div class="treatment-image image-facials"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Facials</p>
+                            <h3>Dermablading</h3>
+                            <p>Smooths texture and removes fine facial hair for a brighter finish.</p>
+                            <div class="treatment-meta">
+                                <span>From $130</span>
+                                <span>45 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="treatment-card">
+                        <div class="treatment-image image-body"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Body</p>
+                            <h3>Body Treatment</h3>
+                            <p>A calming full-body treatment designed for skin renewal and relaxation.</p>
+                            <div class="treatment-meta">
+                                <span>From $120</span>
+                                <span>60 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="treatment-card">
+                        <div class="treatment-image image-massage"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Massage</p>
+                            <h3>Relaxation Massage</h3>
+                            <p>A restorative massage for stress relief and whole-body reset.</p>
+                            <div class="treatment-meta">
+                                <span>From $129</span>
+                                <span>60 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="treatment-card">
+                        <div class="treatment-image image-nails"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Nails</p>
+                            <h3>Spa Pedicure</h3>
+                            <p>Foot care, polish and relaxation in a simple maintenance treatment.</p>
+                            <div class="treatment-meta">
+                                <span>From $59</span>
+                                <span>45 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="treatment-card">
+                        <div class="treatment-image image-beauty"></div>
+                        <div class="treatment-content">
+                            <p class="treatment-category">Beauty</p>
+                            <h3>Brow Sculpt</h3>
+                            <p>Shape and refine brows with a quick beauty maintenance service.</p>
+                            <div class="treatment-meta">
+                                <span>From $45</span>
+                                <span>30 min</span>
+                            </div>
+                            <div class="treatment-actions">
+                                <a href="treatment.html" class="text-link">View details</a>
+                                <button class="add-cart-btn" type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer" id="contact">
+            <div>
+                <h3>Our stores</h3>
+                <p>Shop 2, 107 Hazel Glen Drive</p>
+                <p>Doreen, VIC 3754</p>
+                <p>176 Scarborough Beach Road</p>
+                <p>Mount Hawthorn, WA 6016</p>
+            </div>
+
+            <div>
+                <h3>Clinic hours</h3>
+                <p>Mon–Fri: 9am–5pm</p>
+                <p>Saturday: By appointment</p>
+            </div>
+
+            <div>
+                <h3>Socials</h3>
+                <p>Instagram | TikTok | Facebook</p>
+            </div>
+
+            <div>
+                <h2>Lush</h2>
+                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
+            </div>
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
