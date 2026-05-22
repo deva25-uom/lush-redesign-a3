@@ -103,7 +103,7 @@ a{
 }
 
 .search-form.is-open {
-  width: 14rem;
+  width: 16rem;
 }
 
 .search-toggle {
@@ -116,7 +116,7 @@ a{
   border: none;
   background: transparent;
   color: var(--color-text);
-  font-size: 1.55rem;
+  font-size: 2.2rem;
   line-height: 1;
   cursor: pointer;
   padding: 0;
@@ -167,6 +167,16 @@ a{
 .menu-button {
   font-size: 1.8rem;
   cursor: pointer;
+}
+
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -220,13 +230,13 @@ a{
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   text-decoration: none;
 }
 
 .btn-primary {
   background: var(--color-primary-dark);
   color: white;
+  width: 40%;
 }
 
 .btn-secondary {
@@ -240,8 +250,8 @@ a{
 }
 
 .section h2 {
-  margin-bottom: var(--space-md);
-  font-size: clamp(1.8rem, 8vw, 3rem);
+  margin-bottom: var(--space-lg);
+  font-size: clamp(1.7rem, 7vw, 2.7rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -279,14 +289,14 @@ a{
 }
 
 .category-image {
-  min-height: 26rem;
+  min-height: 20rem;
   border-radius: 0;
   background: linear-gradient(135deg, #e9bfc5, #f8e4df);
   transition: background 0.35s ease, transform 0.35s ease;
 }
 
 .category-card:hover .category-image {
-  transform: scale(1.015);
+  transform: scale(1.06);
 }
 
 
@@ -372,11 +382,10 @@ a{
 }
 
 .about-section .btn {
-  width: 100%;
+  width: 90%;
   min-height: 2.4rem;
   border-radius: 0;
   margin-top: var(--space-sm);
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.85rem;
 }
@@ -419,9 +428,9 @@ a{
 }
 
 .review-card {
-  border-top: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-border);
   border-radius: 0;
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
   background: transparent;
   max-width: 28rem;
 }
@@ -431,7 +440,6 @@ a{
   color: var(--color-text);
   font-size: 1rem;
 }
-
 
 .site-footer {
   display: grid;
