@@ -560,7 +560,8 @@ a{
 }
 
 .services-hero {
-  min-height: 70vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -579,6 +580,44 @@ a{
   display: grid;
   gap: var(--space-md);
   margin-bottom: var(--space-lg);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  text-decoration: none;
+  animation: bounceDown 1.4s ease-in-out infinite;
+  transition: opacity 0.25s ease;
+}
+
+.scroll-cue img {
+  align-items: middle;
+  width: 3rem;
+  height: auto;
+  display: block;
+}
+
+.scroll-cue.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes bounceDown {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(0.45rem);
+  }
 }
 
 .filter-row {
