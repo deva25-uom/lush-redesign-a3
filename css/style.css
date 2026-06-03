@@ -677,7 +677,33 @@ a{
 
 .treatment-image {
   min-height: 10rem;
-  background: linear-gradient(135deg, #e9bfc5, #f8e4df);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-surface);
+}
+
+.treatment-hydrafacial {
+  background-image: url("../images/hydrafacial.jpg");
+}
+
+.treatment-dermablading {
+  background-image: url("../images/dermablading.jpg");
+}
+
+.treatment-body {
+  background-image: url("../images/scrub.jpg");
+}
+
+.treatment-massage {
+  background-image: url("../images/relax.png");
+}
+
+.treatment-pedicure {
+  background-image: url("../images/pedi.jpg");
+}
+
+.treatment-brow {
+  background-image: url("../images/brow.jpg");
 }
 
 .treatment-content {
