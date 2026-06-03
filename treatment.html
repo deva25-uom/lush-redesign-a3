@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Treatment Details | Lush Skin & Body Redesign</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header class="site-header">
+            <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
+                <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="services.html">Services</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <label class="sr-only" for="site-search">Search services</label>
+                    <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
+                    <input id="site-search" type="search" placeholder="Search services...">
+                </form>
+
+                <a class="cart-link" href="cart.html" aria-label="View cart">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                        <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                </a>
+
+                <button class="menu-button" type="button" aria-label="Open menu">☰</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="treatment-detail-page">
+                <div class="treatment-detail-image image-facials"></div>
+
+                <div class="treatment-detail-content">
+                    <p class="eyebrow">Facials</p>
+                    <h1>Hydrafacial</h1>
+                    <p>
+                        A deep cleansing and hydrating treatment designed to refresh tired skin
+                        and support a smoother, brighter appearance.
+                    </p>
+
+                    <div class="treatment-meta detail-meta">
+                        <span>From $149</span>
+                        <span>60 min</span>
+                        <span>4.8 ★</span>
+                    </div>
+
+                    <h2>Benefits</h2>
+                    <ul class="benefit-list">
+                        <li>Supports hydration and glow</li>
+                        <li>Helps improve dullness and congestion</li>
+                        <li>Suitable for users wanting a low-friction skin refresh</li>
+                    </ul>
+
+                    <div class="detail-actions">
+                        <button class="add-cart-btn" type="button">Add to cart</button>
+                        <a class="text-link" href="services.html">Back to services</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
