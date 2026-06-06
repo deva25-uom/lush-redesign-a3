@@ -1,5 +1,5 @@
 :root {
-  --color-bg: #f7e8e8; /*background colour*/
+  --color-bg: #f7efef; /*background colour*/
   --color-surface: #fffaf7; 
   --color-primary: #b88993; /*main colour*/
   --color-primary-dark: #7a4d57; /*main colour but darker for potential shaidng*/
@@ -520,7 +520,7 @@ a{
   .hero-content {
     padding: 0;
   }
-  
+
   .hero {
     min-height: 100vh;
     padding: 8rem var(--space-xl) var(--space-xl);
@@ -1019,27 +1019,33 @@ a{
 .detail-content {
   display: grid;
   align-content: center;
-  gap: var(--space-sm);
+  gap: 0.45rem;
 }
 
 .detail-content h1 {
   max-width: 10ch;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0.35rem;
   font-size: clamp(3rem, 12vw, 5.5rem);
   line-height: 0.9;
   letter-spacing: -0.07em;
 }
 
+.detail-content .eyebrow{
+  margin-bottom: 0.35rem;
+}
+
 .detail-intro {
   max-width: 34rem;
+  margin-bottom: 0.4rem;
   color: var(--color-muted);
 }
 
 .detail-meta-row {
   display: flex;
-  justify-content: space-between;
-  max-width: 22rem;
-  margin: var(--space-sm) 0;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  max-width: 32rem;
+  margin-bottom: 2rem;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-text);
@@ -1070,6 +1076,10 @@ a{
   gap: var(--space-md);
   max-width: 34rem;
   margin-top: var(--space-md);
+}
+
+.detail-actions .add-cart-btn{
+  min-width: 18rem;
 }
 
 @media (min-width: 48rem) {
