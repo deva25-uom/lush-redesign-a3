@@ -764,6 +764,17 @@ a{
   min-width: 8rem;
 }
 
+.disabled-btn {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.muted-link {
+  color: var(--color-muted);
+  text-decoration: none;
+  opacity: 0.75;
+}
+
 @media (min-width: 48rem) {
   .page-hero {
     padding: 9rem var(--space-xl) 5rem;

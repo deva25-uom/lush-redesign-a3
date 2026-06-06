@@ -59,119 +59,16 @@
                     <h2>All services</h2>
 
                     <div class="filter-row" aria-label="Service filters">
-                        <button class="filter-chip active" type="button">All</button>
-                        <button class="filter-chip" type="button">Facials</button>
-                        <button class="filter-chip" type="button">Body</button>
-                        <button class="filter-chip" type="button">Massage</button>
-                        <button class="filter-chip" type="button">Nails</button>
-                        <button class="filter-chip" type="button">Beauty</button>
+                        <button class="filter-chip active" type="button" data-category="all">All</button>
+                        <button class="filter-chip" type="button" data-category="facials">Facials</button>
+                        <button class="filter-chip" type="button" data-category="body">Body</button>
+                        <button class="filter-chip" type="button" data-category="massage">Massage</button>
+                        <button class="filter-chip" type="button" data-category="nails">Nails</button>
+                        <button class="filter-chip" type="button" data-category="beauty">Beauty</button>
                     </div>
                 </div>
 
-                <div class="service-grid">
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-hydrafacial"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Facials</p>
-                            <h3>Hydrafacial</h3>
-                            <p>Deep cleanse, exfoliation and hydration for glowing skin.</p>
-                            <div class="treatment-meta">
-                                <span>From $149</span>
-                                <span>60 min</span>
-                            </div>
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-dermablading"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Facials</p>
-                            <h3>Dermablading</h3>
-                            <p>Smooths texture and removes fine facial hair for a brighter finish.</p>
-                            <div class="treatment-meta">
-                                <span>From $130</span>
-                                <span>45 min</span>
-                            </div>
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-body"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Body</p>
-                            <h3>Body Treatment</h3>
-                            <p>A calming full-body treatment designed for skin renewal and relaxation.</p>
-                            <div class="treatment-meta">
-                                <span>From $120</span>
-                                <span>60 min</span>
-                            </div>
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-massage"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Massage</p>
-                            <h3>Relaxation Massage</h3>
-                            <p>A restorative massage for stress relief and whole-body reset.</p>
-                            <div class="treatment-meta">
-                                <span>From $129</span>
-                                <span>60 min</span>
-                            </div>
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-pedicure"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Nails</p>
-                            <h3>Spa Pedicure</h3>
-                            <p>Foot care, polish and relaxation in a simple maintenance treatment.</p>
-                            <div class="treatment-meta">
-                                <span>From $59</span>
-                                <span>45 min</span>
-                            </div>
-
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="treatment-card">
-                        <div class="treatment-image treatment-brow"></div>
-                        <div class="treatment-content">
-                            <p class="treatment-category">Beauty</p>
-                            <h3>Brow Sculpt</h3>
-                            <p>Shape and refine brows with a quick beauty maintenance service.</p>
-                            <div class="treatment-meta">
-                                <span>From $45</span>
-                                <span>30 min</span>
-                            </div>
-                            <div class="treatment-actions">
-                                <button class="add-cart-btn" type="button">Add to cart</button>
-                                <a href="treatment.html" class="text-link">View details</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="service-grid" id="service-grid"></div>
             </section>
         </main>
 
