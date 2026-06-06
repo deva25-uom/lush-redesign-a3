@@ -1040,17 +1040,27 @@ a{
   color: var(--color-muted);
 }
 
-.detail-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xl);
-  max-width: 32rem;
-  margin-bottom: 2rem;
-  font-size: 0.9rem;
-  font-weight: 700;
+.detail-meta {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.9rem;
+}
+
+.detail-price {
+  margin-bottom: 0.75rem;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   color: var(--color-text);
 }
 
+.detail-submeta {
+  display: flex;
+  gap: var(--space-md);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 .detail-info-block {
   max-width: 34rem;
   padding-top: var(--space-sm);
@@ -1082,6 +1092,80 @@ a{
   min-width: 18rem;
 }
 
+.detail-reviews-section {
+  padding: var(--space-xl) var(--space-sm);
+  background: var(--color-surface);
+}
+
+.detail-reviews-section h2 {
+  margin-bottom: var(--space-lg);
+  font-size: clamp(1.7rem, 7vw, 2.7rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.detail-review-row {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  scroll-snap-type: x mandatory;
+}
+
+.detail-review-row {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding-bottom: var(--space-md);
+  scroll-snap-type: x mandatory;
+}
+
+.detail-review-row::-webkit-scrollbar {
+  height: 0.45rem;
+}
+
+.detail-review-row::-webkit-scrollbar-track {
+  background: #f0d8dc;
+}
+
+.detail-review-row::-webkit-scrollbar-thumb {
+  background: var(--color-primary-dark);
+}
+
+.detail-review-row::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
+.detail-review-card {
+  flex: 0 0 18rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  scroll-snap-align: start;
+}
+
+.review-person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.review-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--color-primary-dark);
+  border-radius: 50%;
+  color: var(--color-primary-dark);
+  font-size: 0.9rem;
+}
+
+.detail-review-card p {
+  color: var(--color-muted);
+}
+
 @media (min-width: 48rem) {
   .detail-page {
     grid-template-columns: 1fr auto 0.9fr;
@@ -1104,6 +1188,15 @@ a{
   .detail-content h1 {
     font-size: clamp(3.5rem, 7vw, 5.5rem);
   }
+
+  .detail-reviews-section {
+    padding: 5rem var(--space-xl);
+  }
+
+  .detail-review-card {
+    flex-basis: 22rem;
+  }
+
 }
 
 
