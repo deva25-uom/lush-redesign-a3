@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Treatment Details | Lush Skin & Body Redesign</title>
+        <title>Hydrafacial | Lush Skin & Body Redesign</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -14,7 +14,7 @@
             </a>
 
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="services.html">Services</a>
+                <a href="services.html" class="active-link"><strong>Services</strong></a>
                 <a href="shop.html">Shop</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
@@ -34,40 +34,53 @@
                     </svg>
                 </a>
 
-                <button class="menu-button" type="button" aria-label="Open menu">☰</button>
             </div>
         </header>
 
         <main>
-            <section class="treatment-detail-page">
-                <div class="treatment-detail-image image-facials"></div>
+            <section class="detail-page">
+                <div class="detail-collage" aria-label="Hydrafacial treatment imagery">
+                    <div class="detail-image detail-hydra-one"></div>
+                    <div class="detail-image detail-hydra-two"></div>
+                    <div class="detail-image detail-hydra-three"></div>
+                    <div class="detail-image detail-hydra-four"></div>
+                </div>
 
-                <div class="treatment-detail-content">
+                <div class="detail-divider"></div>
+
+                <article class="detail-content">
                     <p class="eyebrow">Facials</p>
+
                     <h1>Hydrafacial</h1>
-                    <p>
-                        A deep cleansing and hydrating treatment designed to refresh tired skin
-                        and support a smoother, brighter appearance.
+
+                    <p class="detail-intro">
+                        A refreshing facial treatment designed to cleanse, exfoliate and hydrate the skin
+                        while supporting a smoother, brighter-looking finish.
                     </p>
 
-                    <div class="treatment-meta detail-meta">
+                    <div class="detail-meta-row">
                         <span>From $149</span>
                         <span>60 min</span>
-                        <span>4.8 ★</span>
                     </div>
 
-                    <h2>Benefits</h2>
-                    <ul class="benefit-list">
-                        <li>Supports hydration and glow</li>
-                        <li>Helps improve dullness and congestion</li>
-                        <li>Suitable for users wanting a low-friction skin refresh</li>
-                    </ul>
+                    <div class="detail-info-block">
+                        <h2>Best for</h2>
+                        <p>Dullness, dehydration, congestion and users wanting a low-friction skin refresh.</p>
+                    </div>
+
+                    <div class="detail-info-block">
+                        <h2>What to expect</h2>
+                        <p>
+                            The treatment focuses on cleansing, resurfacing and hydration. The page keeps
+                            information short so users can understand the service before adding it to cart.
+                        </p>
+                    </div>
 
                     <div class="detail-actions">
                         <button class="add-cart-btn" type="button">Add to cart</button>
-                        <a class="text-link" href="services.html">Back to services</a>
+                        <a href="services.html" class="text-link">Back to services</a>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
 

@@ -185,8 +185,7 @@ a{
   opacity: 1;
 }
 
-.cart-link,
-.menu-button {
+.cart-link {
   width: 2.2rem;
   height: 2.2rem;
   display: flex;
@@ -200,11 +199,6 @@ a{
   font-size: 1.35rem;
   line-height: 1;
   padding: 0;
-}
-
-.menu-button {
-  font-size: 1.8rem;
-  cursor: pointer;
 }
 
 .icon {
@@ -526,11 +520,7 @@ a{
   .hero-content {
     padding: 0;
   }
-
-  .menu-button {
-    display: none;
-  }
-
+  
   .hero {
     min-height: 100vh;
     padding: 8rem var(--space-xl) var(--space-xl);
@@ -986,65 +976,126 @@ a{
 /* --------------------------------------------------------------------------------------------- */
 /* TREATMENT DETAIL PAGE */
 
-.treatment-detail-page {
+.detail-page {
+  min-height: 100vh;
   display: grid;
   gap: var(--space-lg);
   padding: 7rem var(--space-sm) var(--space-xl);
-  min-height: 100vh;
-  align-items: center;
+  background: var(--color-bg);
 }
 
-.treatment-detail-image {
-  min-height: 28rem;
+.detail-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.detail-image {
+  aspect-ratio: 4/5;
   background-size: cover;
   background-position: center;
 }
 
-.treatment-detail-content h1 {
+.detail-hydra-one {
+  background-image: url("../images/hydrafacial-detail01.jpg");
+}
+
+.detail-hydra-two {
+  background-image: url("../images/hydrafacial-detail02.jpg");
+}
+
+.detail-hydra-three {
+  background-image: url("../images/hydrafacial-detail03.jpg");
+}
+
+.detail-hydra-four {
+  background-image: url("../images/hydrafacial-detail04.jpg");
+}
+
+.detail-divider {
+  display: none;
+}
+
+.detail-content {
+  display: grid;
+  align-content: center;
+  gap: var(--space-sm);
+}
+
+.detail-content h1 {
   max-width: 10ch;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   font-size: clamp(3rem, 12vw, 5.5rem);
   line-height: 0.9;
   letter-spacing: -0.07em;
 }
 
-.treatment-detail-content h2 {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-}
-
-.detail-meta {
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.benefit-list {
-  margin: 0;
-  padding-left: 1.2rem;
+.detail-intro {
+  max-width: 34rem;
   color: var(--color-muted);
 }
 
-.benefit-list li {
-  margin-bottom: 0.5rem;
+.detail-meta-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 22rem;
+  margin: var(--space-sm) 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.detail-info-block {
+  max-width: 34rem;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.detail-info-block h2 {
+  margin-bottom: var(--space-xs);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detail-info-block p {
+  margin-bottom: 0;
+  color: var(--color-muted);
 }
 
 .detail-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-md);
-  margin-top: var(--space-lg);
+  max-width: 34rem;
+  margin-top: var(--space-md);
 }
 
 @media (min-width: 48rem) {
-  .treatment-detail-page {
-    grid-template-columns: 1fr 1fr;
+  .detail-page {
+    grid-template-columns: 1fr auto 0.9fr;
+    align-items: center;
+    gap: var(--space-xl);
     padding: 7rem var(--space-xl) var(--space-xl);
   }
 
-  .treatment-detail-image {
-    min-height: 38rem;
+  .detail-collage {
+    gap: 0.5rem;
+  }
+
+  .detail-divider {
+    display: block;
+    width: 1px;
+    height: 32rem;
+    background: var(--color-border);
+  }
+
+  .detail-content h1 {
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
   }
 }
+
 
 /* ------------------------------------------------------------------------------------------ */
 /* RESPONSIVE FIXES */
