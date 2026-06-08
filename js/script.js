@@ -420,6 +420,7 @@ function renderServices(category) {
         data-price-number="${service.priceNumber}"
         data-duration="${service.duration}"
         data-type="service"
+        data-image-class="${service.imageClass}"
       >
         ${alreadyAdded ? "Added" : "Add to cart"}
       </button>
@@ -548,7 +549,8 @@ document.addEventListener("click", function (event) {
     priceNumber: Number(button.dataset.priceNumber),
     duration: button.dataset.duration,
     type: button.dataset.type || "service",
-    quantity: 1
+    quantity: 1,
+    imageClass: button.dataset.imageClass
   };
 
   cartItems.push(item);
@@ -723,28 +725,36 @@ function renderCartPage() {
       `
       : "";
 
-    cartItem.innerHTML = `
-      <div class="cart-item-top">
-        <div>
-          <p class="treatment-category">${item.category}</p>
-          <h3>${item.name}</h3>
+
+      cartItem.innerHTML = `
+        <div class="cart-item-main">
+          <div class="cart-thumb ${item.imageClass || ""}"></div>
+
+          <div class="cart-item-content">
+            <div class="cart-item-top">
+              <div>
+                <p class="treatment-category">${item.category}</p>
+                <h3>${item.name}</h3>
+              </div>
+
+              <div class="cart-item-controls">
+                ${quantityControls}
+
+                <button class="remove-item-btn" type="button" data-index="${index}" aria-label="Remove ${item.name}">
+                  ×
+                </button>
+              </div>
+            </div>
+
+            <div class="cart-item-details">
+              <p>${item.type === "product" ? "Skincare product" : item.duration}</p>
+              <p>${item.price}</p>
+              <strong>$${lineTotal.toFixed(2)}</strong>
+            </div>
+          </div>
         </div>
+      `;
 
-        <div class="cart-item-controls">
-          ${quantityControls}
-
-          <button class="remove-item-btn" type="button" data-index="${index}" aria-label="Remove ${item.name}">
-            ×
-          </button>
-        </div>
-      </div>
-
-      <div class="cart-item-details">
-        <p>${item.type === "product" ? "Skincare product" : item.duration}</p>
-        <p>${item.price}</p>
-        <strong>$${lineTotal.toFixed(2)}</strong>
-      </div>
-    `;
 
     cartItemsContainer.appendChild(cartItem);
   });
@@ -820,14 +830,17 @@ function renderBookingProductList() {
     productItem.className = "booking-product-item";
 
     productItem.innerHTML = `
-      <div>
-        <strong>${item.name}</strong>
-        <p>${item.category} · Qty ${quantity}</p>
+      <div class="booking-item-left">
+        <div class="booking-thumb ${item.imageClass || ""}"></div>
+
+        <div>
+          <strong>${item.name}</strong>
+          <p>${item.category} · Qty ${quantity}</p>
+        </div>
       </div>
 
       <strong>$${lineTotal.toFixed(2)}</strong>
     `;
-
     bookingProductList.appendChild(productItem);
   });
 }
@@ -871,9 +884,16 @@ function renderServiceBookingFields() {
     const bookingCard = document.createElement("article");
     bookingCard.className = "service-booking-card";
 
+
     bookingCard.innerHTML = `
-      <p class="treatment-category">${item.category}</p>
-      <h3>${item.name}</h3>
+      <div class="booking-service-head">
+        <div class="booking-thumb ${item.imageClass || ""}"></div>
+
+        <div>
+          <p class="treatment-category">${item.category}</p>
+          <h3>${item.name}</h3>
+        </div>
+      </div>
 
       <div class="form-grid">
         <div class="form-group">
@@ -1174,6 +1194,7 @@ function renderProducts(category) {
         data-price-number="${product.priceNumber}"
         data-duration=""
         data-type="product"
+        data-image-class="${product.imageClass}"
       >
         Add to cart
       </button>

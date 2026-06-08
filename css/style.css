@@ -2260,3 +2260,50 @@ a{
     width: 40%;
   }
 }
+
+/* ---------------------------------------------------------------------------------------------------------- */
+/* IMAGE THUMBNAILS IN CART / BOOKING / PAYMENT */
+
+.cart-item-main {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.cart-thumb,
+.booking-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-surface);
+}
+
+.cart-item-content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.booking-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.booking-item-left .booking-thumb {
+  width: 4rem;
+  flex-shrink: 0;
+}
+
+.booking-service-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.booking-service-head .booking-thumb {
+  width: 5rem;
+  flex-shrink: 0;
+}
