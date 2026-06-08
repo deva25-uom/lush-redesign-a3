@@ -1,3 +1,5 @@
+// SEARCH INTERACTION //
+
 const searchForm = document.querySelector(".search-form");
 const searchButton = document.querySelector(".search-toggle");
 const searchInput = document.querySelector("#site-search");
@@ -8,6 +10,7 @@ if (searchForm && searchButton && searchInput) {
     searchInput.focus();
   });
 }
+
 
 // SERVICES FILTERING //
 
@@ -20,8 +23,7 @@ const services = {
       price: "From $149",
       duration: "60 min",
       imageClass: "treatment-hydrafacial",
-      detailPage: "hydrafacial.html",
-      isClickable: true
+      detailPage: "hydrafacial.html"
     },
     {
       category: "Facials",
@@ -30,8 +32,7 @@ const services = {
       price: "From $130",
       duration: "45 min",
       imageClass: "treatment-dermablading",
-      detailPage: "dermablading.html",
-      isClickable: true
+      detailPage: "dermablading.html"
     },
     {
       category: "Body",
@@ -39,9 +40,8 @@ const services = {
       description: "A calming body treatment supporting lightness and relaxation.",
       price: "From $120",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "body-treatment.html",
-      isClickable: true
+      imageClass: "treatment-lymphatic",
+      detailPage: "body-treatment.html"
     },
     {
       category: "Massage",
@@ -49,29 +49,28 @@ const services = {
       description: "Warm stone therapy designed to ease tension and support deep relaxation.",
       price: "From $139",
       duration: "75 min",
-      imageClass: "treatment-massage",
-      detailPage: "relaxation-massage.html",
-      isClickable: true
+      imageClass: "treatment-hot-stone",
+      detailPage: "relaxation-massage.html"
     },
+
     {
       category: "Nails",
-      name: "Spa Pedicure",
-      description: "Foot soak, scrub, cuticle work, massage and polish.",
-      price: "From $59",
-      duration: "45 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "spa-pedicure.html",
-      isClickable: true
+      name: "Shellac Nails",
+      description: "Choose manicure, pedicure, or both with a longer-lasting shellac finish.",
+      price: "From $65",
+      duration: "45-75 min",
+      imageClass: "treatment-shellac-nails",
+      detailPage: "shellac-nails.html"
     },
+
     {
       category: "Beauty",
       name: "Eyebrow Wax + Shape",
       description: "A quick brow shaping service for a clean, polished finish.",
       price: "From $45",
       duration: "30 min",
-      imageClass: "treatment-brow",
-      detailPage: "brow-sculpt.html",
-      isClickable: true
+      imageClass: "treatment-eyebrow-shape",
+      detailPage: "brow-sculpt.html"
     }
   ],
 
@@ -83,8 +82,7 @@ const services = {
       price: "From $149",
       duration: "60 min",
       imageClass: "treatment-hydrafacial",
-      detailPage: "hydrafacial.html",
-      isClickable: true
+      detailPage: "hydrafacial.html"
     },
     {
       category: "Facials",
@@ -93,8 +91,7 @@ const services = {
       price: "From $130",
       duration: "45 min",
       imageClass: "treatment-dermablading",
-      detailPage: "dermablading.html",
-      isClickable: true
+      detailPage: "dermablading.html"
     },
     {
       category: "Facials",
@@ -102,9 +99,8 @@ const services = {
       description: "A targeted facial to support smoother, firmer-looking skin.",
       price: "From $135",
       duration: "60 min",
-      imageClass: "treatment-hydrafacial",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-anti-aging",
+      detailPage: "anti-aging-facial.html"
     },
     {
       category: "Facials",
@@ -112,9 +108,8 @@ const services = {
       description: "A resurfacing facial designed to refresh dull or uneven skin texture.",
       price: "From $120",
       duration: "45 min",
-      imageClass: "treatment-dermablading",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-microdermabrasion",
+      detailPage: "microdermabrasion-facial.html"
     },
     {
       category: "Facials",
@@ -122,9 +117,8 @@ const services = {
       description: "A skin-renewing facial to support brightness and clarity.",
       price: "From $110",
       duration: "45 min",
-      imageClass: "treatment-hydrafacial",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-peel",
+      detailPage: "peel-facial.html"
     },
     {
       category: "Facials",
@@ -132,9 +126,8 @@ const services = {
       description: "A clarifying facial focused on congestion and blemish-prone skin.",
       price: "From $125",
       duration: "60 min",
-      imageClass: "treatment-dermablading",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-acne",
+      detailPage: "acne-treatment-facial.html"
     }
   ],
 
@@ -145,9 +138,8 @@ const services = {
       description: "A targeted back treatment for congestion, texture and skin maintenance.",
       price: "From $115",
       duration: "45 min",
-      imageClass: "treatment-body",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-back-facial",
+      detailPage: "bespoke-back-facial.html"
     },
     {
       category: "Body",
@@ -155,9 +147,8 @@ const services = {
       description: "A contour-focused treatment for body care and maintenance.",
       price: "From $160",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-body-sculpting",
+      detailPage: "body-sculpting.html"
     },
     {
       category: "Body",
@@ -165,9 +156,8 @@ const services = {
       description: "A calming body treatment supporting lightness and relaxation.",
       price: "From $120",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "body-treatment.html",
-      isClickable: true
+      imageClass: "treatment-lymphatic",
+      detailPage: "body-treatment.html"
     },
     {
       category: "Body",
@@ -175,9 +165,8 @@ const services = {
       description: "A targeted body treatment focused on skin texture and appearance.",
       price: "From $145",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-cellulite",
+      detailPage: "cellulite-treatment.html"
     },
     {
       category: "Body",
@@ -185,9 +174,8 @@ const services = {
       description: "A polishing body treatment for smoother, softer-feeling skin.",
       price: "From $130",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-exfoliation",
+      detailPage: "full-body-exfoliation.html"
     },
     {
       category: "Body",
@@ -195,9 +183,8 @@ const services = {
       description: "A body-focused treatment supporting firmer-looking skin.",
       price: "From $155",
       duration: "60 min",
-      imageClass: "treatment-body",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-skin-tightening",
+      detailPage: "skin-tightening.html"
     }
   ],
 
@@ -208,9 +195,8 @@ const services = {
       description: "A restorative massage for stress relief and whole-body reset.",
       price: "From $129",
       duration: "60 min",
-      imageClass: "treatment-massage",
-      detailPage: "relaxation-massage.html",
-      isClickable: true
+      imageClass: "treatment-relaxation-massage",
+      detailPage: "relaxation-massage.html"
     },
     {
       category: "Massage",
@@ -218,9 +204,8 @@ const services = {
       description: "Warm stone therapy designed to ease tension and support deep relaxation.",
       price: "From $139",
       duration: "75 min",
-      imageClass: "treatment-massage",
-      detailPage: "relaxation-massage.html",
-      isClickable: true
+      imageClass: "treatment-hot-stone",
+      detailPage: "hot-stone-massage.html"
     },
     {
       category: "Massage",
@@ -228,9 +213,8 @@ const services = {
       description: "A relaxing massage experience supported by aromatic oils.",
       price: "From $135",
       duration: "60 min",
-      imageClass: "treatment-massage",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-aromatherapy",
+      detailPage: "aromatherapy-massage.html"
     },
     {
       category: "Massage",
@@ -238,9 +222,8 @@ const services = {
       description: "A focused treatment for tension, tightness and body restriction.",
       price: "From $145",
       duration: "60 min",
-      imageClass: "treatment-massage",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-myofascial",
+      detailPage: "myofascial-release.html"
     },
     {
       category: "Massage",
@@ -248,9 +231,8 @@ const services = {
       description: "A supportive massage designed for comfort and relaxation.",
       price: "From $135",
       duration: "60 min",
-      imageClass: "treatment-massage",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-pregnancy",
+      detailPage: "pregnancy-massage.html"
     },
     {
       category: "Massage",
@@ -258,72 +240,65 @@ const services = {
       description: "A shorter massage focused on common areas of tension.",
       price: "From $75",
       duration: "30 min",
-      imageClass: "treatment-massage",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-head-neck",
+      detailPage: "head-neck-shoulder-massage.html"
     }
   ],
 
   nails: [
     {
       category: "Nails",
-      name: "Classic Pedicure",
-      description: "Cut, file, buff and polish for simple foot care maintenance.",
-      price: "From $49",
-      duration: "35 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "#",
-      isClickable: false
-    },
-    {
-      category: "Nails",
-      name: "Classic Manicure",
-      description: "Cut, file, buff and polish for clean everyday nails.",
+      name: "Classic Nails",
+      description: "Choose manicure, pedicure, or both with cut, file, buff and polish.",
       price: "From $45",
-      duration: "30 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "#",
-      isClickable: false
+      duration: "30-60 min",
+      imageClass: "treatment-classic-nails",
+      detailPage: "classic-nails.html"
     },
     {
       category: "Nails",
-      name: "Pedicure with Shellac",
-      description: "Pedicure service finished with long-lasting shellac polish.",
-      price: "From $69",
-      duration: "50 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "#",
-      isClickable: false
-    },
-    {
-      category: "Nails",
-      name: "Manicure with Shellac",
-      description: "Manicure service finished with long-lasting shellac polish.",
+      name: "Shellac Nails",
+      description: "Choose manicure, pedicure, or both with a longer-lasting shellac finish.",
       price: "From $65",
-      duration: "45 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "#",
-      isClickable: false
+      duration: "45-75 min",
+      imageClass: "treatment-shellac-nails",
+      detailPage: "shellac-nails.html"
     },
     {
       category: "Nails",
-      name: "Pedicure with Gel",
-      description: "A polished pedicure finished with gel for a glossy result.",
+      name: "Gel Nails",
+      description: "A glossy gel finish available for manicure, pedicure, or both.",
       price: "From $75",
-      duration: "55 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "#",
-      isClickable: false
+      duration: "50-80 min",
+      imageClass: "treatment-gel-nails",
+      detailPage: "gel-nails.html"
     },
     {
       category: "Nails",
-      name: "Spa Pedicure",
-      description: "Foot soak, scrub, cuticle work, massage and polish.",
-      price: "From $59",
-      duration: "45 min",
-      imageClass: "treatment-pedicure",
-      detailPage: "spa-pedicure.html",
-      isClickable: true
+      name: "Builder Gel",
+      description: "Structured nail support for users wanting strength, shape and a polished finish.",
+      price: "From $85",
+      duration: "60-90 min",
+      imageClass: "treatment-builder-gel",
+      detailPage: "builder-gel.html"
+    },
+    {
+      category: "Nails",
+      name: "Acrylic Nails",
+      description: "Acrylic nail services with optional extensions for added length and shape.",
+      price: "From $95",
+      duration: "75-100 min",
+      imageClass: "treatment-acrylic-nails",
+      detailPage: "acrylic-nails.html"
+    },
+    {
+      category: "Nails",
+      name: "Nail Add-ons",
+      description: "Add extensions, removal of previous work, or upgrade your nail service.",
+      price: "From $15",
+      duration: "15-45 min",
+      imageClass: "treatment-nail-addons",
+      detailPage: "nail-addons.html"
     }
   ],
 
@@ -334,39 +309,8 @@ const services = {
       description: "A full body waxing service for smooth skin maintenance.",
       price: "From $120",
       duration: "75 min",
-      imageClass: "treatment-brow",
-      detailPage: "#",
-      isClickable: false
-    },
-    {
-      category: "Beauty",
-      name: "Full Arms / Legs",
-      description: "Waxing for arms or legs with a clean, smooth finish.",
-      price: "From $70",
-      duration: "45 min",
-      imageClass: "treatment-brow",
-      detailPage: "#",
-      isClickable: false
-    },
-    {
-      category: "Beauty",
-      name: "Brazilian Wax",
-      description: "A focused waxing service delivered as a quick beauty treatment.",
-      price: "From $65",
-      duration: "35 min",
-      imageClass: "treatment-brow",
-      detailPage: "#",
-      isClickable: false
-    },
-    {
-      category: "Beauty",
-      name: "Full Body Spray Tan",
-      description: "A full body tanning service for an even bronzed finish.",
-      price: "From $55",
-      duration: "30 min",
-      imageClass: "treatment-brow",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-full-body-wax",
+      detailPage: "full-body-wax.html"
     },
     {
       category: "Beauty",
@@ -374,9 +318,26 @@ const services = {
       description: "A quick brow shaping service for a clean, polished finish.",
       price: "From $45",
       duration: "30 min",
-      imageClass: "treatment-brow",
-      detailPage: "brow-sculpt.html",
-      isClickable: true
+      imageClass: "treatment-eyebrow-shape",
+      detailPage: "brow-sculpt.html"
+    },
+    {
+      category: "Beauty",
+      name: "Brazilian Wax",
+      description: "A focused waxing service delivered as a quick beauty treatment.",
+      price: "From $65",
+      duration: "35 min",
+      imageClass: "treatment-brazilian",
+      detailPage: "brazilian-wax.html"
+    },
+    {
+      category: "Beauty",
+      name: "Full Body Spray Tan",
+      description: "A full body tanning service for an even bronzed finish.",
+      price: "From $55",
+      duration: "30 min",
+      imageClass: "treatment-spray-tan",
+      detailPage: "spray-tan.html"
     },
     {
       category: "Beauty",
@@ -384,9 +345,17 @@ const services = {
       description: "A lash treatment designed to lift and open the eye area.",
       price: "From $85",
       duration: "45 min",
-      imageClass: "treatment-brow",
-      detailPage: "#",
-      isClickable: false
+      imageClass: "treatment-lash-lift",
+      detailPage: "lash-lift.html"
+    },
+    {
+      category: "Beauty",
+      name: "Full Arms / Legs",
+      description: "Waxing for arms or legs with a clean, smooth finish.",
+      price: "From $70",
+      duration: "45 min",
+      imageClass: "treatment-arms-legs",
+      detailPage: "arms-legs-wax.html"
     }
   ]
 };
@@ -395,7 +364,7 @@ const serviceGrid = document.querySelector("#service-grid");
 const filterChips = document.querySelectorAll(".filter-chip");
 
 function renderServices(category) {
-  if (!serviceGrid) return;
+  if (!serviceGrid || !services[category]) return;
 
   serviceGrid.innerHTML = "";
 
@@ -403,13 +372,19 @@ function renderServices(category) {
     const card = document.createElement("article");
     card.className = "treatment-card";
 
-    const detailLink = service.isClickable
-      ? `<a href="${service.detailPage}" class="text-link">View details</a>`
-      : `<span class="text-link muted-link">Preview only</span>`;
-
-    const addButton = service.isClickable
-      ? `<button class="add-cart-btn" type="button">Add to cart</button>`
-      : `<button class="add-cart-btn disabled-btn" type="button" disabled>Coming soon</button>`;
+    const addButton = `
+      <button 
+        class="add-cart-btn" 
+        type="button"
+        data-name="${service.name}"
+        data-category="${service.category}"
+        data-price="${service.price}"
+        data-duration="${service.duration}"
+      >
+        Add to cart
+      </button>
+    `;
+    const detailLink = `<a href="${service.detailPage}" class="text-link">View details</a>`;
 
     card.innerHTML = `
       <div class="treatment-image ${service.imageClass}"></div>
@@ -451,3 +426,148 @@ filterChips.forEach(function (chip) {
     renderServices(selectedCategory);
   });
 });
+
+// CART FUNCTIONALITY //
+
+function getCartItems() {
+  return JSON.parse(localStorage.getItem("lushCart")) || [];
+}
+
+function saveCartItems(items) {
+  localStorage.setItem("lushCart", JSON.stringify(items));
+}
+
+function updateCartCount() {
+  const cartCountElements = document.querySelectorAll(".cart-count");
+  const cartItems = getCartItems();
+
+  cartCountElements.forEach(function (countElement) {
+    countElement.textContent = cartItems.length;
+
+    countElement.classList.add("is-bumping");
+
+    setTimeout(function () {
+      countElement.classList.remove("is-bumping");
+    }, 220);
+  });
+}
+
+function showCartToast(itemName) {
+  const toast = document.querySelector("#cart-toast");
+
+  if (!toast) return;
+
+  toast.textContent = `${itemName} added to cart`;
+  toast.classList.add("is-visible");
+
+  setTimeout(function () {
+    toast.classList.remove("is-visible");
+  }, 1800);
+}
+
+document.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("add-cart-btn")) return;
+
+  const button = event.target;
+
+  const item = {
+    name: button.dataset.name,
+    category: button.dataset.category,
+    price: button.dataset.price,
+    duration: button.dataset.duration,
+    type: "service"
+  };
+
+  const existingCart = getCartItems();
+
+  existingCart.push(item);
+  saveCartItems(existingCart);
+
+  button.textContent = "Added";
+  updateCartCount();
+  showCartToast(item.name);
+
+  setTimeout(function () {
+    button.textContent = "Add to cart";
+  }, 1200);
+});
+
+updateCartCount();
+
+
+// CART PAGE DISPLAY //
+
+const cartItemsContainer = document.querySelector("#cart-items");
+const cartCount = document.querySelector("#cart-count");
+const clearCartButton = document.querySelector("#clear-cart");
+
+function getCartItems() {
+  return JSON.parse(localStorage.getItem("lushCart")) || [];
+}
+
+function saveCartItems(items) {
+  localStorage.setItem("lushCart", JSON.stringify(items));
+}
+
+function renderCartPage() {
+  if (!cartItemsContainer || !cartCount) return;
+
+  const cartItems = getCartItems();
+
+  cartItemsContainer.innerHTML = "";
+  cartCount.textContent = cartItems.length;
+
+  if (cartItems.length === 0) {
+    cartItemsContainer.innerHTML = `
+      <p class="empty-cart-message">
+        Your cart is empty. Start by exploring services.
+      </p>
+    `;
+    return;
+  }
+
+  cartItems.forEach(function (item, index) {
+    const cartItem = document.createElement("article");
+    cartItem.className = "cart-item";
+
+    cartItem.innerHTML = `
+      <div class="cart-item-top">
+        <div>
+          <p class="treatment-category">${item.category}</p>
+          <h3>${item.name}</h3>
+        </div>
+
+        <button class="remove-item-btn" type="button" data-index="${index}">
+          Remove
+        </button>
+      </div>
+
+      <p>${item.price}</p>
+      <p>${item.duration}</p>
+    `;
+
+    cartItemsContainer.appendChild(cartItem);
+  });
+}
+
+if (cartItemsContainer) {
+  renderCartPage();
+}
+
+document.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("remove-item-btn")) return;
+
+  const indexToRemove = Number(event.target.dataset.index);
+  const cartItems = getCartItems();
+
+  cartItems.splice(indexToRemove, 1);
+  saveCartItems(cartItems);
+  renderCartPage();
+});
+
+if (clearCartButton) {
+  clearCartButton.addEventListener("click", function () {
+    localStorage.removeItem("lushCart");
+    renderCartPage();
+  });
+}

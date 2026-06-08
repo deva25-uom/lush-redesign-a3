@@ -26,12 +26,12 @@
                     <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
                     <input id="site-search" type="search" placeholder="Search services...">
                 </form>
-
                 <a class="cart-link" href="cart.html" aria-label="View cart">
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M6 8h12l-1 12H7L6 8Z"></path>
                         <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
                     </svg>
+                    <span class="cart-count" aria-label="Cart item count">0</span>
                 </a>
 
             </div>
@@ -114,6 +114,7 @@
                 <p>Student redesign prototype for INFO20005 Assignment 3.</p>
             </div>
         </footer>
+        <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
 
         <script src="js/script.js"></script>
     </body>
