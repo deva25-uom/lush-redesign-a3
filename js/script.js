@@ -1291,3 +1291,165 @@ if (paymentForm) {
     window.location.href = "confirmation.html";
   });
 }
+
+// --------------------------------------------------------------------------------------------------------------
+// CONFIRMATION PAGE //
+
+const confirmationCustomer = document.querySelector("#confirmation-customer");
+const confirmationServices = document.querySelector("#confirmation-services");
+const confirmationProducts = document.querySelector("#confirmation-products");
+const confirmationTotal = document.querySelector("#confirmation-total");
+
+function renderConfirmationPage() {
+  if (!confirmationCustomer) return;
+
+  const bookingData = JSON.parse(localStorage.getItem("lushBooking"));
+  const paymentData = JSON.parse(localStorage.getItem("lushPayment"));
+  let cartItems = getCartItems();
+
+  if (cartItems.length > 0) {
+    localStorage.setItem("lushConfirmedCart", JSON.stringify(cartItems));
+  } else {
+    cartItems = JSON.parse(localStorage.getItem("lushConfirmedCart")) || [];
+  }
+  const serviceItems = cartItems.filter(function (item) {
+    return item.type === "service";
+  });
+
+  const productItems = cartItems.filter(function (item) {
+    return item.type === "product";
+  });
+
+  const subtotal = cartItems.reduce(function (total, item) {
+    const quantity = Number(item.quantity || 1);
+    return total + Number(item.priceNumber || 0) * quantity;
+  }, 0);
+
+  const hasServices = serviceItems.length > 0;
+  const hasProducts = productItems.length > 0;
+  const deliveryFee = hasProducts && !hasServices ? 14 : 0;
+  const gst = subtotal * 0.02;
+  const totalPrice = subtotal + deliveryFee + gst;
+
+  const customerData = bookingData || paymentData;
+
+  if (!customerData) {
+    confirmationCustomer.innerHTML = `
+      <p class="empty-cart-message">
+        No confirmation details available.
+      </p>
+    `;
+    return;
+  }
+
+  confirmationCustomer.innerHTML = `
+    <div class="confirmation-item">
+      <p><strong>Name:</strong> ${customerData.name}</p>
+      <p><strong>Email:</strong> ${customerData.email}</p>
+      <p><strong>Phone:</strong> ${customerData.phone}</p>
+      ${
+        customerData.location
+          ? `<p><strong>Store:</strong> ${customerData.location}</p>`
+          : ""
+      }
+      ${
+        customerData.delivery
+          ? `<p><strong>Delivery:</strong> ${customerData.delivery}</p>`
+          : ""
+      }
+      ${
+        customerData.notes
+          ? `<p><strong>Notes:</strong> ${customerData.notes}</p>`
+          : ""
+      }
+    </div>
+  `;
+
+  if (confirmationServices) {
+    if (bookingData && bookingData.services && bookingData.services.length > 0) {
+      confirmationServices.innerHTML = bookingData.services
+        .map(function (service) {
+          return `
+            <article class="confirmation-item">
+              <h3>${service.name}</h3>
+              <p>${service.category}</p>
+              <p><strong>Date:</strong> ${service.date}</p>
+              <p><strong>Time:</strong> ${service.time}</p>
+              <p><strong>Staff:</strong> ${service.staff}</p>
+              <p><strong>Price:</strong> ${service.price}</p>
+            </article>
+          `;
+        })
+        .join("");
+    } else {
+      confirmationServices.innerHTML = `
+        <p class="empty-cart-message">
+          No services selected.
+        </p>
+      `;
+    }
+  }
+
+  if (confirmationProducts) {
+    if (productItems.length > 0) {
+      confirmationProducts.innerHTML = productItems
+        .map(function (product) {
+          const quantity = Number(product.quantity || 1);
+          const lineTotal = Number(product.priceNumber || 0) * quantity;
+
+          return `
+            <article class="confirmation-item">
+              <h3>${product.name}</h3>
+              <p>${product.category}</p>
+              <p><strong>Quantity:</strong> ${quantity}</p>
+              <p><strong>Item price:</strong> ${product.price}</p>
+              <p><strong>Line total:</strong> $${lineTotal.toFixed(2)}</p>
+            </article>
+          `;
+        })
+        .join("");
+    } else {
+      confirmationProducts.innerHTML = `
+        <p class="empty-cart-message">
+          No products selected.
+        </p>
+      `;
+    }
+  }
+
+  if (confirmationTotal) {
+    confirmationTotal.innerHTML = `
+      <div class="confirmation-row">
+        <span>Subtotal</span>
+        <strong>$${subtotal.toFixed(2)}</strong>
+      </div>
+
+      ${
+        deliveryFee > 0
+          ? `
+            <div class="confirmation-row">
+              <span>Delivery fee</span>
+              <strong>$${deliveryFee.toFixed(2)}</strong>
+            </div>
+          `
+          : ""
+      }
+
+      <div class="confirmation-row">
+        <span>GST fee</span>
+        <strong>$${gst.toFixed(2)}</strong>
+      </div>
+
+      <div class="confirmation-row total">
+        <span>Total</span>
+        <strong>$${totalPrice.toFixed(2)}</strong>
+      </div>
+    `;
+  }
+
+  localStorage.removeItem("lushCart");
+  updateCartCount();
+  updateAddButtonStates();
+}
+
+renderConfirmationPage();

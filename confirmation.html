@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmation | Lush Skin & Body Redesign</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header class="site-header">
+            <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
+                <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="services.html">Services</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <label class="sr-only" for="site-search">Search services</label>
+                    <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
+                    <input id="site-search" type="search" placeholder="Search services...">
+                </form>
+
+                <a class="cart-link" href="cart.html" aria-label="View cart">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                        <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-count" aria-label="Cart item count">0</span>
+                </a>
+            </div>
+        </header>
+
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
+
+        <main>
+            <section class="confirmation-page">
+                <div class="confirmation-hero-layout">
+                    <div class="confirmation-heading">
+                        <p class="eyebrow">Confirmed</p>
+                        <h1>Your request has been received.</h1>
+                        <p>
+                            Thank you for choosing Lush Skin & Body. Your selected services and products
+                            are summarised below.
+                        </p>
+                    </div>
+
+                    <section class="confirmation-customer-card">
+                        <h2>Customer details</h2>
+                        <div id="confirmation-customer"></div>
+                    </section>
+                </div>
+
+                <div class="confirmation-layout">
+                    <section class="confirmation-panel">
+                        <h2>Selected services</h2>
+                        <div id="confirmation-services"></div>
+                    </section>
+
+                    <section class="confirmation-panel">
+                        <h2>Product order</h2>
+                        <div id="confirmation-products"></div>
+                    </section>
+
+                    <section class="confirmation-panel confirmation-total-panel">
+                        <h2>Order total</h2>
+                        <div id="confirmation-total"></div>
+                    </section>
+                </div>
+
+                <div class="confirmation-actions">
+                    <a class="btn btn-primary" href="index.html">Back to home</a>
+                    <a class="text-link" href="shop.html">Continue shopping</a>
+                </div>
+            </section>
+        </main>
+
+
+        <footer class="site-footer">
+            <div>
+                <h3>Our stores</h3>
+                <p>Shop 2, 107 Hazel Glen Drive</p>
+                <p>Doreen, VIC 3754</p>
+                <p>176 Scarborough Beach Road</p>
+                <p>Mount Hawthorn, WA 6016</p>
+            </div>
+
+            <div>
+                <h3>Clinic hours</h3>
+                <p>Mon-Fri: 9am-5pm</p>
+                <p>Saturday: By appointment</p>
+            </div>
+
+            <div>
+                <h3>Socials</h3>
+                <p>Instagram | TikTok | Facebook</p>
+            </div>
+
+            <div>
+                <h2>Lush</h2>
+                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
+            </div>
+        </footer>
+
+        <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
