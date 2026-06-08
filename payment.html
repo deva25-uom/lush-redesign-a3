@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Booking | Lush Skin & Body Redesign</title>
+        <title>Checkout | Lush Skin & Body Redesign</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -42,67 +42,79 @@
         </button>
 
         <main>
-            <section class="booking-page">
-                <div class="booking-heading">
-                    <p class="eyebrow">Booking details</p>
-                    <h1>Choose your preferred appointment details.</h1>
+            <section class="payment-page">
+                <div class="payment-heading">
+                    <p class="eyebrow">Checkout</p>
+                    <h1>Complete your skincare order.</h1>
                     <p>
-                        Add your details below so the clinic can prepare your selected treatments.
+                        Add your contact and payment details to confirm your product order.
                     </p>
                 </div>
 
-                <form class="booking-form" id="booking-form">
-                    <div class="booking-form-section">
-                        <p class="eyebrow">Your details</p>
+                <form class="payment-form" id="payment-form">
+                    <div class="payment-form-section">
+                        <p class="eyebrow">Contact details</p>
 
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="booking-name">Full name</label>
-                                <input id="booking-name" name="name" type="text" required>
+                                <label for="payment-name">Full name</label>
+                                <input id="payment-name" type="text" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="booking-email">Email</label>
-                                <input id="booking-email" name="email" type="email" required>
+                                <label for="payment-email">Email</label>
+                                <input id="payment-email" type="email" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="booking-phone">Phone</label>
-                                <input id="booking-phone" name="phone" type="tel" required>
+                                <label for="payment-phone">Phone</label>
+                                <input id="payment-phone" type="tel" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="booking-location">Preferred store</label>
-                                <select id="booking-location" name="location" required>
-                                    <option value="">Select a store</option>
-                                    <option value="Doreen, VIC">Doreen, VIC</option>
-                                    <option value="Mount Hawthorn, WA">Mount Hawthorn, WA</option>
+                                <label for="payment-delivery">Delivery option</label>
+                                <select id="payment-delivery" required>
+                                    <option value="">Select an option</option>
+                                    <option value="Standard delivery">Standard delivery</option>
+                                    <option value="Express delivery">Express delivery</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class="booking-form-section">
-                        <p class="eyebrow">Product order</p>
-                        <div id="booking-product-list" class="booking-product-list"></div>
+                    <div class="payment-form-section">
+                        <p class="eyebrow">Product summary</p>
+                        <div id="payment-product-list" class="booking-product-list"></div>
                     </div>
 
-                    <div class="booking-form-section">
-                        <p class="eyebrow">Schedule each service</p>
-                        <div id="service-booking-list" class="service-booking-list"></div>
-                    </div>
+                    <div class="payment-form-section">
+                        <p class="eyebrow">Payment details</p>
 
-                    <div class="booking-form-section">
-                        <p class="eyebrow">Final notes</p>
+                        <div class="form-grid">
+                            <div class="form-group form-group-full">
+                                <label for="card-name">Cardholder name</label>
+                                <input id="card-name" type="text" required>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="booking-notes">Notes</label>
-                            <textarea id="booking-notes" name="notes" rows="4" placeholder="Optional skin concerns, preferences, or access needs."></textarea>
+                            <div class="form-group form-group-full">
+                                <label for="card-number">Card number</label>
+                                <input id="card-number" type="text" placeholder="1234 5678 9012 3456" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="card-expiry">Expiry</label>
+                                <input id="card-expiry" type="text" placeholder="MM/YY" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input id="card-cvv" type="text" placeholder="123" required>
+                            </div>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary booking-submit-btn" type="submit">
-                        Confirm booking
+                    <button class="btn btn-primary payment-submit-btn" type="submit">
+                        Confirm payment
                     </button>
                 </form>
             </section>

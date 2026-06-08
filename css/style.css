@@ -82,6 +82,34 @@ a{
   border-bottom: none;
 }
 
+.back-button {
+  position: absolute;
+  top: 4.8rem;
+  left: var(--space-md);
+  z-index: 9;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media (min-width: 48rem) {
+  .back-button {
+    left: var(--space-xl);
+  }
+}
+
 .logo img {
   width: 5rem;
   height: auto;
@@ -469,6 +497,64 @@ a{
   text-decoration: underline;
   text-underline-offset: 0.25rem;
 }
+
+/* SHOP PROMO SECTION */
+
+.shop-promo-section {
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-sm);
+  background: var(--color-surface);
+}
+
+.shop-promo-image {
+  min-height: 18rem;
+  background-image: url("../images/shop-promo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.shop-promo-content {
+  display: grid;
+  align-content: center;
+}
+
+.shop-promo-content h2 {
+  max-width: 10ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.4rem, 9vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.shop-promo-content p {
+  max-width: 32rem;
+  color: var(--color-muted);
+}
+
+.shop-promo-content .btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+@media (min-width: 48rem) {
+  .shop-promo-section {
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    padding: 5rem var(--space-xl);
+  }
+
+  .shop-promo-image {
+    min-height: 28rem;
+  }
+
+  .shop-promo-content .btn {
+    width: 90%;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+/* ABOUT SECTION */
 
 .about-section {
   display: grid;
@@ -935,6 +1021,12 @@ a{
   min-width: 8rem;
 }
 
+.add-cart-btn.is-added {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: white;
+}
+
 .disabled-btn {
   opacity: 0.45;
   cursor: not-allowed;
@@ -995,19 +1087,277 @@ a{
 
 /* SHOP PAGE */
 
-.shop-hero {
+.shop-landing {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background:
-    linear-gradient(
-      rgba(247, 232, 232, 0.10),
-      rgba(247, 232, 232, 0.78)
-    ),
-    url("../images/shop.jpg");
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: 7rem var(--space-sm) var(--space-xl);
+  background: var(--color-bg);
+}
+
+.shop-landing-content {
+  max-width: 36rem;
+}
+
+.shop-landing-content h1 {
+  max-width: 11ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.shop-landing-content p {
+  max-width: 32rem;
+  color: var(--color-muted);
+}
+
+.shop-landing-content .btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+.shop-landing-image {
+  width: 100%;
+  max-width: 30rem;
+  aspect-ratio: 6/7;
+  justify-self: center;
+  background-image: url("../images/shop-landing.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.shop-routine-section {
+  display: grid;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-sm) 2.5rem ;
+  background: var(--color-surface);
+}
+
+.routine-heading h2 {
+  max-width: 15ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.4rem, 9vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.routine-heading p {
+  max-width: 32rem;
+  color: var(--color-muted);
+}
+
+.routine-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.routine-step {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.routine-step span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.routine-step h3 {
+  margin-bottom: var(--space-xs);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.routine-step p {
+  color: var(--color-muted);
+}
+
+.shop-products-section {
+  background: var(--color-bg);
+}
+
+.shop-products-section {
+  padding-top: 2.5rem;
+}
+
+.shop-toolbar {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.product-filter-row {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding-bottom: var(--space-xs);
+}
+
+.product-filter-chip {
+  flex: 0 0 auto;
+  border: 1px solid var(--color-primary-dark);
+  background: transparent;
+  color: var(--color-primary-dark);
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.product-filter-chip.active,
+.product-filter-chip:hover {
+  background: var(--color-primary-dark);
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.product-card {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.product-image {
+  aspect-ratio: 6/7;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-surface);
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.015);
+}
+
+.product-category {
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+  color: var(--color-primary-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-card h3 {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.product-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+.product-price {
+  margin-top: 0.35rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.product-card .add-cart-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* PRODUCT IMAGES */
+
+.product-cream-cleanser {
+  background-image: url("../images/cream-cleanser.jpg");
+}
+
+.product-gel-cleanser {
+  background-image: url("../images/gel-cleanser.jpg");
+}
+
+.product-hydrating-serum {
+  background-image: url("../images/hydrating-serum.jpg");
+}
+
+.product-vitamin-c-serum {
+  background-image: url("../images/vitamin-c-serum.jpg");
+}
+
+.product-daily-moisturiser {
+  background-image: url("../images/daily-moisturiser.jpg");
+}
+
+.product-barrier-cream {
+  background-image: url("../images/barrier-cream.jpg");
+}
+
+.product-clay-mask {
+  background-image: url("../images/clay-mask.jpg");
+}
+
+.product-hydrating-mask {
+  background-image: url("../images/hydrating-mask.jpg");
+}
+
+.product-body-oil {
+  background-image: url("../images/body-oil.jpg");
+}
+
+.product-body-lotion {
+  background-image: url("../images/body-lotion.jpg");
+}
+
+@media (min-width: 48rem) {
+  .shop-landing {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-xl);
+    padding: 7rem var(--space-xl) var(--space-xl);
+  }
+
+  .shop-landing-content .btn {
+    width: 55%;
+  }
+
+  .shop-landing-image {
+    max-width: 28rem;
+    justify-self: end;
+  }
+
+  .shop-routine-section {
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    padding: 5rem var(--space-xl) 3rem;
+  }
+
+  .routine-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shop-toolbar {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: var(--space-lg);
+  }
+
+  .product-filter-row {
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-xl) var(--space-lg);
+  }
 }
 
 /* -----------------------------------------------------------------------------------------------*/
@@ -1580,19 +1930,6 @@ a{
   font-size: 0.9rem;
 }
 
-.remove-item-btn {
-  border: none;
-  background: transparent;
-  color: var(--color-primary-dark);
-  font: inherit;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 0;
-}
-
 .summary-row {
   display: flex;
   justify-content: space-between;
@@ -1605,6 +1942,14 @@ a{
 .cart-summary p {
   color: var(--color-muted);
   margin-bottom: var(--space-md);
+}
+
+.total-row {
+  font-size: 1.1rem;
+}
+
+.total-row strong {
+  font-size: 1.3rem;
 }
 
 .cart-checkout-btn {
@@ -1630,6 +1975,65 @@ a{
   color: var(--color-muted);
 }
 
+.cart-item-details {
+  display: grid;
+  gap: 0.45rem;
+}
+
+
+.quantity-control span {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.remove-item-btn {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: none;
+  background: transparent;
+  color: var(--color-primary-dark);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.remove-item-btn:hover {
+  color: var(--color-text);
+}
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.quantity-btn {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--color-primary-dark);
+  background: transparent;
+  color: var(--color-primary-dark);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  min-width: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
 @media (min-width: 48rem) {
   .cart-page {
     padding: 7rem var(--space-xl) var(--space-xl);
@@ -1647,4 +2051,212 @@ a{
 }
 
 /* ---------------------------------------------------------------------------------------------- */
+/* BOOKING PAGE */
 
+.booking-page {
+  min-height: 100vh;
+  padding: 7rem var(--space-sm) var(--space-xl);
+  background: var(--color-bg);
+}
+
+.booking-heading {
+  margin-bottom: var(--space-xl);
+}
+
+.booking-heading h1 {
+  max-width: 13ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.booking-heading p {
+  max-width: 34rem;
+  color: var(--color-muted);
+}
+
+.booking-form {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.booking-form-section {
+  background: var(--color-surface);
+  padding: var(--space-md);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.75rem 0;
+  font: inherit;
+  color: var(--color-text);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--color-primary-dark);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.booking-submit-btn {
+  width: 100%;
+}
+
+.service-booking-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.service-booking-card {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.service-booking-card:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.service-booking-card h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.service-booking-card .form-grid {
+  margin-top: var(--space-sm);
+}
+
+
+.booking-product-list {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.booking-product-item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-sm);
+}
+
+.booking-product-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.booking-product-item p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+.booking-product-item strong {
+  font-size: 0.95rem;
+}
+
+@media (min-width: 48rem) {
+  .booking-page {
+    padding: 7rem var(--space-xl) var(--space-xl);
+  }
+
+  .booking-form-section {
+    padding: var(--space-lg);
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-group-full {
+    grid-column: 1 / -1;
+  }
+
+  .booking-submit-btn {
+    width: 40%;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+/* PAYMENT PAGE */
+
+.payment-page {
+  min-height: 100vh;
+  padding: 7rem var(--space-sm) var(--space-xl);
+  background: var(--color-bg);
+}
+
+.payment-heading {
+  margin-bottom: var(--space-xl);
+}
+
+.payment-heading h1 {
+  max-width: 12ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.payment-heading p {
+  max-width: 34rem;
+  color: var(--color-muted);
+}
+
+.payment-form {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.payment-form-section {
+  background: var(--color-surface);
+  padding: var(--space-md);
+}
+
+.payment-submit-btn {
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .payment-page {
+    padding: 7rem var(--space-xl) var(--space-xl);
+  }
+
+  .payment-form-section {
+    padding: var(--space-lg);
+  }
+
+  .payment-submit-btn {
+    width: 40%;
+  }
+}

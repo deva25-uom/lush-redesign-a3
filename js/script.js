@@ -21,6 +21,7 @@ const services = {
       name: "HydraFacial",
       description: "Deep cleanse, exfoliation and hydration for glowing skin.",
       price: "From $149",
+      priceNumber: 149,
       duration: "60 min",
       imageClass: "treatment-hydrafacial",
       detailPage: "hydrafacial.html"
@@ -30,6 +31,7 @@ const services = {
       name: "Dermalblading",
       description: "Smooths texture and removes fine facial hair for a brighter finish.",
       price: "From $130",
+      priceNumber: 130,
       duration: "45 min",
       imageClass: "treatment-dermablading",
       detailPage: "dermablading.html"
@@ -39,6 +41,7 @@ const services = {
       name: "Lymphatic Drainage",
       description: "A calming body treatment supporting lightness and relaxation.",
       price: "From $120",
+      priceNumber: 120,
       duration: "60 min",
       imageClass: "treatment-lymphatic",
       detailPage: "body-treatment.html"
@@ -47,6 +50,7 @@ const services = {
       category: "Massage",
       name: "Hot Stone Massage",
       description: "Warm stone therapy designed to ease tension and support deep relaxation.",
+      priceNumber: 139,
       price: "From $139",
       duration: "75 min",
       imageClass: "treatment-hot-stone",
@@ -57,6 +61,7 @@ const services = {
       category: "Nails",
       name: "Shellac Nails",
       description: "Choose manicure, pedicure, or both with a longer-lasting shellac finish.",
+      priceNumber: 65,
       price: "From $65",
       duration: "45-75 min",
       imageClass: "treatment-shellac-nails",
@@ -67,6 +72,7 @@ const services = {
       category: "Beauty",
       name: "Eyebrow Wax + Shape",
       description: "A quick brow shaping service for a clean, polished finish.",
+      priceNumber: 45,
       price: "From $45",
       duration: "30 min",
       imageClass: "treatment-eyebrow-shape",
@@ -79,6 +85,7 @@ const services = {
       category: "Facials",
       name: "HydraFacial",
       description: "Deep cleanse, exfoliation and hydration for glowing skin.",
+      priceNumber: 149,
       price: "From $149",
       duration: "60 min",
       imageClass: "treatment-hydrafacial",
@@ -88,6 +95,7 @@ const services = {
       category: "Facials",
       name: "Dermalblading",
       description: "Smooths texture and removes fine facial hair for a brighter finish.",
+      priceNumber: 130,
       price: "From $130",
       duration: "45 min",
       imageClass: "treatment-dermablading",
@@ -97,6 +105,7 @@ const services = {
       category: "Facials",
       name: "Anti Aging Facial",
       description: "A targeted facial to support smoother, firmer-looking skin.",
+      priceNumber: 135,
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-anti-aging",
@@ -106,6 +115,7 @@ const services = {
       category: "Facials",
       name: "Microdermabrasion Facial",
       description: "A resurfacing facial designed to refresh dull or uneven skin texture.",
+      priceNumber: 120,
       price: "From $120",
       duration: "45 min",
       imageClass: "treatment-microdermabrasion",
@@ -115,6 +125,7 @@ const services = {
       category: "Facials",
       name: "Peel Facial",
       description: "A skin-renewing facial to support brightness and clarity.",
+      priceNumber: 110,
       price: "From $110",
       duration: "45 min",
       imageClass: "treatment-peel",
@@ -124,6 +135,7 @@ const services = {
       category: "Facials",
       name: "Acne Treatment Facial",
       description: "A clarifying facial focused on congestion and blemish-prone skin.",
+      priceNumber: 125,
       price: "From $125",
       duration: "60 min",
       imageClass: "treatment-acne",
@@ -136,6 +148,7 @@ const services = {
       category: "Body",
       name: "Bespoke Back Facial",
       description: "A targeted back treatment for congestion, texture and skin maintenance.",
+      priceNumber: 115,
       price: "From $115",
       duration: "45 min",
       imageClass: "treatment-back-facial",
@@ -145,6 +158,7 @@ const services = {
       category: "Body",
       name: "Body Sculpting",
       description: "A contour-focused treatment for body care and maintenance.",
+      priceNumber: 160,
       price: "From $160",
       duration: "60 min",
       imageClass: "treatment-body-sculpting",
@@ -154,6 +168,7 @@ const services = {
       category: "Body",
       name: "Lymphatic Drainage",
       description: "A calming body treatment supporting lightness and relaxation.",
+      priceNumber: 120,
       price: "From $120",
       duration: "60 min",
       imageClass: "treatment-lymphatic",
@@ -163,6 +178,7 @@ const services = {
       category: "Body",
       name: "Cellulite Treatment",
       description: "A targeted body treatment focused on skin texture and appearance.",
+      priceNumber: 145,
       price: "From $145",
       duration: "60 min",
       imageClass: "treatment-cellulite",
@@ -172,6 +188,7 @@ const services = {
       category: "Body",
       name: "Full Body Exfoliation",
       description: "A polishing body treatment for smoother, softer-feeling skin.",
+      priceNumber: 130,
       price: "From $130",
       duration: "60 min",
       imageClass: "treatment-exfoliation",
@@ -181,6 +198,7 @@ const services = {
       category: "Body",
       name: "Skin Tightening",
       description: "A body-focused treatment supporting firmer-looking skin.",
+      priceNumber: 155,
       price: "From $155",
       duration: "60 min",
       imageClass: "treatment-skin-tightening",
@@ -193,6 +211,7 @@ const services = {
       category: "Massage",
       name: "Relaxation Massage",
       description: "A restorative massage for stress relief and whole-body reset.",
+      priceNumber: 129,
       price: "From $129",
       duration: "60 min",
       imageClass: "treatment-relaxation-massage",
@@ -202,6 +221,7 @@ const services = {
       category: "Massage",
       name: "Hot Stone Massage",
       description: "Warm stone therapy designed to ease tension and support deep relaxation.",
+      priceNumber: 139,
       price: "From $139",
       duration: "75 min",
       imageClass: "treatment-hot-stone",
@@ -211,6 +231,7 @@ const services = {
       category: "Massage",
       name: "Aromatherapy Massage",
       description: "A relaxing massage experience supported by aromatic oils.",
+      priceNumber: 135,
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-aromatherapy",
@@ -220,6 +241,7 @@ const services = {
       category: "Massage",
       name: "Myofascial Release",
       description: "A focused treatment for tension, tightness and body restriction.",
+      priceNumber: 145,
       price: "From $145",
       duration: "60 min",
       imageClass: "treatment-myofascial",
@@ -229,6 +251,7 @@ const services = {
       category: "Massage",
       name: "Pregnancy Massage",
       description: "A supportive massage designed for comfort and relaxation.",
+      priceNumber: 135,
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-pregnancy",
@@ -238,6 +261,7 @@ const services = {
       category: "Massage",
       name: "Head, Neck & Shoulder Massage",
       description: "A shorter massage focused on common areas of tension.",
+      priceNumber: 75,
       price: "From $75",
       duration: "30 min",
       imageClass: "treatment-head-neck",
@@ -250,6 +274,7 @@ const services = {
       category: "Nails",
       name: "Classic Nails",
       description: "Choose manicure, pedicure, or both with cut, file, buff and polish.",
+      priceNumber: 45,
       price: "From $45",
       duration: "30-60 min",
       imageClass: "treatment-classic-nails",
@@ -259,6 +284,7 @@ const services = {
       category: "Nails",
       name: "Shellac Nails",
       description: "Choose manicure, pedicure, or both with a longer-lasting shellac finish.",
+      priceNumber: 65,
       price: "From $65",
       duration: "45-75 min",
       imageClass: "treatment-shellac-nails",
@@ -268,6 +294,7 @@ const services = {
       category: "Nails",
       name: "Gel Nails",
       description: "A glossy gel finish available for manicure, pedicure, or both.",
+      priceNumber: 75,
       price: "From $75",
       duration: "50-80 min",
       imageClass: "treatment-gel-nails",
@@ -277,6 +304,7 @@ const services = {
       category: "Nails",
       name: "Builder Gel",
       description: "Structured nail support for users wanting strength, shape and a polished finish.",
+      priceNumber: 85,
       price: "From $85",
       duration: "60-90 min",
       imageClass: "treatment-builder-gel",
@@ -286,6 +314,7 @@ const services = {
       category: "Nails",
       name: "Acrylic Nails",
       description: "Acrylic nail services with optional extensions for added length and shape.",
+      priceNumber: 95,
       price: "From $95",
       duration: "75-100 min",
       imageClass: "treatment-acrylic-nails",
@@ -295,6 +324,7 @@ const services = {
       category: "Nails",
       name: "Nail Add-ons",
       description: "Add extensions, removal of previous work, or upgrade your nail service.",
+      priceNumber: 15,
       price: "From $15",
       duration: "15-45 min",
       imageClass: "treatment-nail-addons",
@@ -307,6 +337,7 @@ const services = {
       category: "Beauty",
       name: "Full Body Wax",
       description: "A full body waxing service for smooth skin maintenance.",
+      priceNumber: 120,
       price: "From $120",
       duration: "75 min",
       imageClass: "treatment-full-body-wax",
@@ -316,6 +347,7 @@ const services = {
       category: "Beauty",
       name: "Eyebrow Wax + Shape",
       description: "A quick brow shaping service for a clean, polished finish.",
+      priceNumber: 45,
       price: "From $45",
       duration: "30 min",
       imageClass: "treatment-eyebrow-shape",
@@ -325,6 +357,7 @@ const services = {
       category: "Beauty",
       name: "Brazilian Wax",
       description: "A focused waxing service delivered as a quick beauty treatment.",
+      priceNumber: 65,
       price: "From $65",
       duration: "35 min",
       imageClass: "treatment-brazilian",
@@ -334,6 +367,7 @@ const services = {
       category: "Beauty",
       name: "Full Body Spray Tan",
       description: "A full body tanning service for an even bronzed finish.",
+      priceNumber: 55,
       price: "From $55",
       duration: "30 min",
       imageClass: "treatment-spray-tan",
@@ -343,6 +377,7 @@ const services = {
       category: "Beauty",
       name: "Lash Lift",
       description: "A lash treatment designed to lift and open the eye area.",
+      priceNumber: 85,
       price: "From $85",
       duration: "45 min",
       imageClass: "treatment-lash-lift",
@@ -352,6 +387,7 @@ const services = {
       category: "Beauty",
       name: "Full Arms / Legs",
       description: "Waxing for arms or legs with a clean, smooth finish.",
+      priceNumber: 70,
       price: "From $70",
       duration: "45 min",
       imageClass: "treatment-arms-legs",
@@ -372,18 +408,23 @@ function renderServices(category) {
     const card = document.createElement("article");
     card.className = "treatment-card";
 
+    const alreadyAdded = isItemInCart(service.name);
+
     const addButton = `
       <button 
-        class="add-cart-btn" 
+        class="add-cart-btn ${alreadyAdded ? "is-added" : ""}" 
         type="button"
         data-name="${service.name}"
         data-category="${service.category}"
-        data-price="${service.price}"
+        data-price="${service.price || "$" + service.priceNumber}"
+        data-price-number="${service.priceNumber}"
         data-duration="${service.duration}"
+        data-type="service"
       >
-        Add to cart
+        ${alreadyAdded ? "Added" : "Add to cart"}
       </button>
     `;
+
     const detailLink = `<a href="${service.detailPage}" class="text-link">View details</a>`;
 
     card.innerHTML = `
@@ -442,8 +483,11 @@ function updateCartCount() {
   const cartItems = getCartItems();
 
   cartCountElements.forEach(function (countElement) {
-    countElement.textContent = cartItems.length;
+    const itemCount = cartItems.reduce(function (total, item) {
+      return total + Number(item.quantity || 1);
+    }, 0);
 
+    countElement.textContent = itemCount;
     countElement.classList.add("is-bumping");
 
     setTimeout(function () {
@@ -470,29 +514,120 @@ document.addEventListener("click", function (event) {
 
   const button = event.target;
 
+  if (!button.dataset.name) return;
+
+  const cartItems = getCartItems();
+
+  const existingItem = cartItems.find(function (item) {
+    return item.name === button.dataset.name;
+  });
+
+  if (existingItem) {
+    if (existingItem.type === "product") {
+      existingItem.quantity = Number(existingItem.quantity || 1) + 1;
+      saveCartItems(cartItems);
+      showCartToast(existingItem.name);
+      updateCartCount();
+
+      if (cartItemsContainer) {
+        renderCartPage();
+      }
+
+      return;
+    }
+
+    button.textContent = "Added";
+    button.classList.add("is-added");
+    return;
+  }
+
   const item = {
     name: button.dataset.name,
     category: button.dataset.category,
     price: button.dataset.price,
+    priceNumber: Number(button.dataset.priceNumber),
     duration: button.dataset.duration,
-    type: "service"
+    type: button.dataset.type || "service",
+    quantity: 1
   };
 
-  const existingCart = getCartItems();
-
-  existingCart.push(item);
-  saveCartItems(existingCart);
+  cartItems.push(item);
+  saveCartItems(cartItems);
 
   button.textContent = "Added";
+  button.classList.add("is-added");
+
   updateCartCount();
   showCartToast(item.name);
 
-  setTimeout(function () {
-    button.textContent = "Add to cart";
-  }, 1200);
+  if (cartItemsContainer) {
+    renderCartPage();
+  }
 });
 
+document.addEventListener("click", function (event) {
+  if (!event.target.classList.contains("quantity-btn")) return;
+
+  const index = Number(event.target.dataset.index);
+  const action = event.target.dataset.action;
+  const cartItems = getCartItems();
+
+  if (!cartItems[index]) return;
+
+  if (action === "increase") {
+    cartItems[index].quantity = Number(cartItems[index].quantity || 1) + 1;
+  }
+
+  if (action === "decrease") {
+    cartItems[index].quantity = Number(cartItems[index].quantity || 1) - 1;
+
+    if (cartItems[index].quantity <= 0) {
+      cartItems.splice(index, 1);
+    }
+  }
+
+  saveCartItems(cartItems);
+  renderCartPage();
+  updateCartCount();
+  updateAddButtonStates();
+});
+
+function isItemInCart(serviceName) {
+  const cartItems = getCartItems();
+
+  return cartItems.some(function (item) {
+    return item.name === serviceName;
+  });
+}
+
+function updateAddButtonStates() {
+  const addButtons = document.querySelectorAll(".add-cart-btn");
+
+  addButtons.forEach(function (button) {
+    const itemName = button.dataset.name;
+    const itemType = button.dataset.type || "service";
+
+    if (!itemName) return;
+
+    if (itemType === "product") {
+      button.textContent = "Add to cart";
+      button.classList.remove("is-added");
+      return;
+    }
+
+    if (isItemInCart(itemName)) {
+      button.textContent = "Added";
+      button.classList.add("is-added");
+    } else {
+      button.textContent = "Add to cart";
+      button.classList.remove("is-added");
+    }
+  });
+}
+
+
 updateCartCount();
+updateAddButtonStates();
 
 
 // CART PAGE DISPLAY //
@@ -500,27 +635,72 @@ updateCartCount();
 const cartItemsContainer = document.querySelector("#cart-items");
 const cartCount = document.querySelector("#cart-count");
 const clearCartButton = document.querySelector("#clear-cart");
-
-function getCartItems() {
-  return JSON.parse(localStorage.getItem("lushCart")) || [];
-}
-
-function saveCartItems(items) {
-  localStorage.setItem("lushCart", JSON.stringify(items));
-}
+const cartSubtotal = document.querySelector("#cart-subtotal");
+const cartDelivery = document.querySelector("#cart-delivery");
+const deliveryRow = document.querySelector("#delivery-row");
+const cartGst = document.querySelector("#cart-gst");
+const cartTotal = document.querySelector("#cart-total");
+const cartCheckoutLink = document.querySelector("#cart-checkout-link");
 
 function renderCartPage() {
   if (!cartItemsContainer || !cartCount) return;
 
   const cartItems = getCartItems();
 
+  const hasServices = cartItems.some(function (item) {
+    return item.type === "service";
+  });
+
+  const hasProducts = cartItems.some(function (item) {
+    return item.type === "product";
+  });
+
+  const subtotal = cartItems.reduce(function (total, item) {
+    const quantity = Number(item.quantity || 1);
+    return total + Number(item.priceNumber || 0) * quantity;
+  }, 0);
+
+  const deliveryFee = hasProducts && !hasServices ? 14 : 0;
+  const gst = subtotal * 0.02;
+  const totalPrice = subtotal + deliveryFee + gst;
+
+  if (cartCheckoutLink) {
+    if (hasServices) {
+      cartCheckoutLink.href = "booking.html";
+      cartCheckoutLink.textContent = "Continue to booking";
+    } else {
+      cartCheckoutLink.href = "payment.html";
+      cartCheckoutLink.textContent = "Continue to checkout";
+    }
+  }
+
   cartItemsContainer.innerHTML = "";
   cartCount.textContent = cartItems.length;
+
+  if (cartSubtotal) {
+    cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+  }
+
+  if (cartDelivery) {
+    cartDelivery.textContent = `$${deliveryFee.toFixed(2)}`;
+  }
+
+  if (deliveryRow) {
+    deliveryRow.style.display = deliveryFee > 0 ? "flex" : "none";
+  }
+
+  if (cartGst) {
+    cartGst.textContent = `$${gst.toFixed(2)}`;
+  }
+
+  if (cartTotal) {
+    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+  }
 
   if (cartItems.length === 0) {
     cartItemsContainer.innerHTML = `
       <p class="empty-cart-message">
-        Your cart is empty. Start by exploring services.
+        Your cart is empty. Start by exploring services or skincare products.
       </p>
     `;
     return;
@@ -530,6 +710,19 @@ function renderCartPage() {
     const cartItem = document.createElement("article");
     cartItem.className = "cart-item";
 
+    const itemQuantity = Number(item.quantity || 1);
+    const lineTotal = Number(item.priceNumber || 0) * itemQuantity;
+
+    const quantityControls = item.type === "product"
+      ? `
+        <div class="quantity-control">
+          <button class="quantity-btn" type="button" data-index="${index}" data-action="decrease">−</button>
+          <span>${itemQuantity}</span>
+          <button class="quantity-btn" type="button" data-index="${index}" data-action="increase">+</button>
+        </div>
+      `
+      : "";
+
     cartItem.innerHTML = `
       <div class="cart-item-top">
         <div>
@@ -537,18 +730,26 @@ function renderCartPage() {
           <h3>${item.name}</h3>
         </div>
 
-        <button class="remove-item-btn" type="button" data-index="${index}">
-          Remove
-        </button>
+        <div class="cart-item-controls">
+          ${quantityControls}
+
+          <button class="remove-item-btn" type="button" data-index="${index}" aria-label="Remove ${item.name}">
+            ×
+          </button>
+        </div>
       </div>
 
-      <p>${item.price}</p>
-      <p>${item.duration}</p>
+      <div class="cart-item-details">
+        <p>${item.type === "product" ? "Skincare product" : item.duration}</p>
+        <p>${item.price}</p>
+        <strong>$${lineTotal.toFixed(2)}</strong>
+      </div>
     `;
 
     cartItemsContainer.appendChild(cartItem);
   });
 }
+
 
 if (cartItemsContainer) {
   renderCartPage();
@@ -563,11 +764,509 @@ document.addEventListener("click", function (event) {
   cartItems.splice(indexToRemove, 1);
   saveCartItems(cartItems);
   renderCartPage();
+  updateCartCount();
+  updateAddButtonStates();
 });
 
 if (clearCartButton) {
   clearCartButton.addEventListener("click", function () {
     localStorage.removeItem("lushCart");
+
     renderCartPage();
+    updateCartCount();
+    updateAddButtonStates();
+  });
+}
+// ----------------------------------------------------------------------------------------------------------------//
+// BOOKING FORM //
+
+const serviceBookingList = document.querySelector("#service-booking-list");
+const bookingForm = document.querySelector("#booking-form");
+const bookingProductList = document.querySelector("#booking-product-list");
+
+const staffOptions = [
+  "No preference - Match me with your best fit",
+  "Leah Hamilton - Lead Skin Therapist",
+  "Maya Chen - Senior Beauty Therapist",
+  "Amara Singh - Massage Therapist",
+  "Sophie Walker - Nail Technician"
+];
+
+function renderBookingProductList() {
+  if (!bookingProductList) return;
+
+  const cartItems = getCartItems();
+
+  const productItems = cartItems.filter(function (item) {
+    return item.type === "product";
+  });
+
+  bookingProductList.innerHTML = "";
+
+  if (productItems.length === 0) {
+    bookingProductList.innerHTML = `
+      <p class="empty-cart-message">
+        No skincare products selected.
+      </p>
+    `;
+    return;
+  }
+
+  productItems.forEach(function (item) {
+    const quantity = Number(item.quantity || 1);
+    const lineTotal = Number(item.priceNumber || 0) * quantity;
+
+    const productItem = document.createElement("article");
+    productItem.className = "booking-product-item";
+
+    productItem.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <p>${item.category} · Qty ${quantity}</p>
+      </div>
+
+      <strong>$${lineTotal.toFixed(2)}</strong>
+    `;
+
+    bookingProductList.appendChild(productItem);
+  });
+}
+
+function renderServiceBookingFields() {
+  if (!serviceBookingList) return;
+
+  const cartItems = getCartItems();
+
+  const serviceItems = cartItems.filter(function (item) {
+    return item.type === "service";
+  });
+
+  serviceBookingList.innerHTML = "";
+
+  if (cartItems.length === 0) {
+    serviceBookingList.innerHTML = `
+      <p class="empty-cart-message">
+        Your cart is empty. Add a service or product before continuing.
+      </p>
+    `;
+    return;
+  }
+
+  if (serviceItems.length === 0) {
+    serviceBookingList.innerHTML = `
+      <p class="empty-cart-message">
+        No services need scheduling. Your skincare products will be included in your order summary.
+      </p>
+    `;
+    return;
+  }
+
+  serviceItems.forEach(function (item, index) {
+    const staffSelectOptions = staffOptions
+      .map(function (staff) {
+        return `<option value="${staff}">${staff}</option>`;
+      })
+      .join("");
+
+    const bookingCard = document.createElement("article");
+    bookingCard.className = "service-booking-card";
+
+    bookingCard.innerHTML = `
+      <p class="treatment-category">${item.category}</p>
+      <h3>${item.name}</h3>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="service-date-${index}">Preferred date</label>
+          <input id="service-date-${index}" type="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service-time-${index}">Preferred time</label>
+          <select id="service-time-${index}" required>
+            <option value="">Select a time</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:30 PM">3:30 PM</option>
+          </select>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="service-staff-${index}">Preferred staff member</label>
+          <select id="service-staff-${index}" required>
+            <option value="">Select a preference</option>
+            ${staffSelectOptions}
+          </select>
+        </div>
+      </div>
+    `;
+
+    serviceBookingList.appendChild(bookingCard);
+  });
+}
+
+
+if (bookingProductList) {
+  renderBookingProductList();
+}
+
+if (serviceBookingList) {
+  renderServiceBookingFields();
+}
+
+if (bookingForm) {
+  bookingForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+
+    const cartItems = getCartItems();
+
+    const serviceItems = cartItems.filter(function (item) {
+      return item.type === "service";
+    });
+
+    const productItems = cartItems.filter(function (item) {
+      return item.type === "product";
+    });
+
+    const scheduledServices = serviceItems.map(function (item, index) {
+      return {
+        name: item.name,
+        category: item.category,
+        price: item.price,
+        duration: item.duration,
+        date: document.querySelector(`#service-date-${index}`).value,
+        time: document.querySelector(`#service-time-${index}`).value,
+        staff: document.querySelector(`#service-staff-${index}`).value
+      };
+    });
+
+    const bookingData = {
+      name: document.querySelector("#booking-name").value,
+      email: document.querySelector("#booking-email").value,
+      phone: document.querySelector("#booking-phone").value,
+      location: document.querySelector("#booking-location").value,
+      notes: document.querySelector("#booking-notes").value,
+      services: scheduledServices,
+      products: productItems
+    };
+
+    localStorage.setItem("lushBooking", JSON.stringify(bookingData));
+
+    window.location.href = "confirmation.html";
+  });
+}
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------
+// SHOP PRODUCTS //
+
+const products = {
+  all: [
+    {
+      category: "Cleansers",
+      name: "Cream Cleanser",
+      description: "A soft daily cleanser for calm, comfortable skin.",
+      price: "$42",
+      priceNumber: 42,
+      imageClass: "product-cream-cleanser"
+    },
+    {
+      category: "Cleansers",
+      name: "Gel Cleanser",
+      description: "A lightweight gel cleanse for a fresh, clean finish.",
+      price: "$38",
+      priceNumber: 38,
+      imageClass: "product-gel-cleanser"
+    },
+    {
+      category: "Serums",
+      name: "Hydrating Serum",
+      description: "A moisture-supporting serum for a plump, dewy look.",
+      price: "$56",
+      priceNumber: 56,
+      imageClass: "product-hydrating-serum"
+    },
+    {
+      category: "Serums",
+      name: "Vitamin C Serum",
+      description: "A brightening serum for dullness and uneven tone.",
+      price: "$62",
+      priceNumber: 62,
+      imageClass: "product-vitamin-c-serum"
+    },
+    {
+      category: "Moisturisers",
+      name: "Daily Moisturiser",
+      description: "A simple everyday moisturiser for soft, balanced skin.",
+      price: "$48",
+      priceNumber: 48,
+      imageClass: "product-daily-moisturiser"
+    },
+    {
+      category: "Moisturisers",
+      name: "Barrier Repair Cream",
+      description: "A richer cream for comfort, softness and barrier support.",
+      price: "$58",
+      priceNumber: 58,
+      imageClass: "product-barrier-cream"
+    },
+    {
+      category: "Masks",
+      name: "Clay Mask",
+      description: "A clarifying mask for congestion and excess shine.",
+      price: "$44",
+      priceNumber: 44,
+      imageClass: "product-clay-mask"
+    },
+    {
+      category: "Masks",
+      name: "Hydrating Mask",
+      description: "A softening mask for dry or tired-looking skin.",
+      price: "$46",
+      priceNumber: 46,
+      imageClass: "product-hydrating-mask"
+    },
+    {
+      category: "Body care",
+      name: "Body Oil",
+      description: "A silky body oil for smooth, nourished-feeling skin.",
+      price: "$52",
+      priceNumber: 52,
+      imageClass: "product-body-oil"
+    },
+    {
+      category: "Body care",
+      name: "Body Lotion",
+      description: "An everyday body moisturiser for lasting softness.",
+      price: "$40",
+      priceNumber: 40,
+      imageClass: "product-body-lotion"
+    }
+  ],
+
+  cleansers: [
+    {
+      category: "Cleansers",
+      name: "Cream Cleanser",
+      description: "A soft daily cleanser for calm, comfortable skin.",
+      price: "$42",
+      priceNumber: 42,
+      imageClass: "product-cream-cleanser"
+    },
+    {
+      category: "Cleansers",
+      name: "Gel Cleanser",
+      description: "A lightweight gel cleanse for a fresh, clean finish.",
+      price: "$38",
+      priceNumber: 38,
+      imageClass: "product-gel-cleanser"
+    }
+  ],
+
+  serums: [
+    {
+      category: "Serums",
+      name: "Hydrating Serum",
+      description: "A moisture-supporting serum for a plump, dewy look.",
+      price: "$56",
+      priceNumber: 56,
+      imageClass: "product-hydrating-serum"
+    },
+    {
+      category: "Serums",
+      name: "Vitamin C Serum",
+      description: "A brightening serum for dullness and uneven tone.",
+      price: "$62",
+      priceNumber: 62,
+      imageClass: "product-vitamin-c-serum"
+    }
+  ],
+
+  moisturisers: [
+    {
+      category: "Moisturisers",
+      name: "Daily Moisturiser",
+      description: "A simple everyday moisturiser for soft, balanced skin.",
+      price: "$48",
+      priceNumber: 48,
+      imageClass: "product-daily-moisturiser"
+    },
+    {
+      category: "Moisturisers",
+      name: "Barrier Repair Cream",
+      description: "A richer cream for comfort, softness and barrier support.",
+      price: "$58",
+      priceNumber: 58,
+      imageClass: "product-barrier-cream"
+    }
+  ],
+
+  masks: [
+    {
+      category: "Masks",
+      name: "Clay Mask",
+      description: "A clarifying mask for congestion and excess shine.",
+      price: "$44",
+      priceNumber: 44,
+      imageClass: "product-clay-mask"
+    },
+    {
+      category: "Masks",
+      name: "Hydrating Mask",
+      description: "A softening mask for dry or tired-looking skin.",
+      price: "$46",
+      priceNumber: 46,
+      imageClass: "product-hydrating-mask"
+    }
+  ],
+
+  body: [
+    {
+      category: "Body care",
+      name: "Body Oil",
+      description: "A silky body oil for smooth, nourished-feeling skin.",
+      price: "$52",
+      priceNumber: 52,
+      imageClass: "product-body-oil"
+    },
+    {
+      category: "Body care",
+      name: "Body Lotion",
+      description: "An everyday body moisturiser for lasting softness.",
+      price: "$40",
+      priceNumber: 40,
+      imageClass: "product-body-lotion"
+    }
+  ]
+};
+
+const productGrid = document.querySelector("#product-grid");
+const productFilterChips = document.querySelectorAll(".product-filter-chip");
+
+function renderProducts(category) {
+  if (!productGrid || !products[category]) return;
+
+  productGrid.innerHTML = "";
+
+  products[category].forEach(function (product) {
+    const card = document.createElement("article");
+    card.className = "product-card";
+
+    card.innerHTML = `
+      <div class="product-image ${product.imageClass}"></div>
+
+      <p class="product-category">${product.category}</p>
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p class="product-price">${product.price}</p>
+
+      <button
+        class="add-cart-btn"
+        type="button"
+        data-name="${product.name}"
+        data-category="${product.category}"
+        data-price="${product.price}"
+        data-price-number="${product.priceNumber}"
+        data-duration=""
+        data-type="product"
+      >
+        Add to cart
+      </button>
+    `;
+
+    productGrid.appendChild(card);
+  });
+
+  updateAddButtonStates();
+}
+
+if (productGrid) {
+  renderProducts("all");
+}
+
+productFilterChips.forEach(function (chip) {
+  chip.addEventListener("click", function () {
+    productFilterChips.forEach(function (item) {
+      item.classList.remove("active");
+    });
+
+    chip.classList.add("active");
+
+    const selectedCategory = chip.dataset.productCategory;
+    renderProducts(selectedCategory);
+  });
+});
+
+
+// ---------------------------------------------------------------------------------------------------------------
+// PAYMENT PAGE //
+
+const paymentForm = document.querySelector("#payment-form");
+const paymentProductList = document.querySelector("#payment-product-list");
+
+function renderPaymentProductList() {
+  if (!paymentProductList) return;
+
+  const cartItems = getCartItems();
+
+  const productItems = cartItems.filter(function (item) {
+    return item.type === "product";
+  });
+
+  paymentProductList.innerHTML = "";
+
+  if (productItems.length === 0) {
+    paymentProductList.innerHTML = `
+      <p class="empty-cart-message">
+        No skincare products selected.
+      </p>
+    `;
+    return;
+  }
+
+  productItems.forEach(function (item) {
+    const quantity = Number(item.quantity || 1);
+    const lineTotal = Number(item.priceNumber || 0) * quantity;
+
+    const productItem = document.createElement("article");
+    productItem.className = "booking-product-item";
+
+    productItem.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <p>${item.category} · Qty ${quantity}</p>
+      </div>
+
+      <strong>$${lineTotal.toFixed(2)}</strong>
+    `;
+
+    paymentProductList.appendChild(productItem);
+  });
+}
+
+if (paymentProductList) {
+  renderPaymentProductList();
+}
+
+if (paymentForm) {
+  paymentForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const paymentData = {
+      name: document.querySelector("#payment-name").value,
+      email: document.querySelector("#payment-email").value,
+      phone: document.querySelector("#payment-phone").value,
+      delivery: document.querySelector("#payment-delivery").value,
+      cardholder: document.querySelector("#card-name").value
+    };
+
+    localStorage.setItem("lushPayment", JSON.stringify(paymentData));
+
+    window.location.href = "confirmation.html";
   });
 }

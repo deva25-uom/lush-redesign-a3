@@ -37,6 +37,10 @@
 
             </div>
         </header>
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
+
 
         <main>
             <section class="detail-page">
@@ -82,7 +86,17 @@
                     </div>
 
                     <div class="detail-actions">
-                        <button class="add-cart-btn" type="button">Add to cart</button>
+                        <button 
+                            class="add-cart-btn" 
+                            type="button"
+                            data-name="HydraFacial"
+                            data-category="Facials"
+                            data-price="From $149"
+                            data-duration="60 min"
+                        >
+                            Add to cart
+                        </button>
+
                         <a href="services.html" class="text-link">Back to services</a>
                     </div>
                 </article>

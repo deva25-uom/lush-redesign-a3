@@ -8,11 +8,11 @@
     </head>
 
     <body>
-      <header class="site-header">
-        <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
-          <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
-        </a>
-        
+        <header class="site-header">
+            <a class="logo" href="index.html" aria-label="Lush Skin and Body homepage">
+                <img src="images/lush-logo.png" alt="Lush Skin and Body logo">
+            </a>
+
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="services.html">Services</a>
                 <a href="shop.html" class="active-link">Shop</a>
@@ -20,59 +20,119 @@
                 <a href="contact.html">Contact</a>
             </nav>
 
-        <div class="header-actions">
-          <form class="search-form" role="search">
-            <label class="sr-only" for="site-search">Search services</label>
-            <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
-            <input id="site-search" type="search" placeholder="Search services...">
-          </form>
-          <a class="cart-link" href="cart.html" aria-label="View cart">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 8h12l-1 12H7L6 8Z"></path>
-                <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
-            </svg>
-            <span class="cart-count" aria-label="Cart item count">0</span>
-        </a>
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <label class="sr-only" for="site-search">Search services</label>
+                    <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
+                    <input id="site-search" type="search" placeholder="Search services...">
+                </form>
 
-        </div>
-      </header>
+                <a class="cart-link" href="cart.html" aria-label="View cart">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                        <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                    <span class="cart-count" aria-label="Cart item count">0</span>
+                </a>
+            </div>
+        </header>
 
-      <main>
-        <section class="page-hero shop-hero">
-          <h1>Shop skincare essentials.</h1>
-          <p>
-            Product browsing will be expanded in the next stage of the implementation.
-          </p>
-        </section>
-      </main>
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
 
-      <footer class="site-footer" id="contact">
-        <div>
-          <h3>Our stores</h3>
-          <p>Shop 2, 107 Hazel Glen Drive</p>
-          <p>Doreen, VIC 3754</p>
-          <p>176 Scarborough Beach Road</p>
-          <p>Mount Hawthorn, WA 6016</p>
-        </div>
+        <main>
+            <section class="shop-landing">
+                <div class="shop-landing-content">
+                    <p class="eyebrow">Shop skincare</p>
+                    <h1>Skincare, beyond the treatment room.</h1>
+                    <p>
+                        Explore curated products designed to support your skin between appointments,
+                        from daily hydration to gentle renewal.
+                    </p>
+                    <a class="btn btn-primary" href="#shop-products">Shop all products</a>
+                </div>
 
-        <div>
-          <h3>Clinic hours</h3>
-          <p>Mon–Fri: 9am–5pm</p>
-          <p>Saturday: By appointment</p>
-        </div>
+                <div class="shop-landing-image"></div>
+            </section>
 
-        <div>
-          <h3>Socials</h3>
-          <p>Instagram | TikTok | Facebook</p>
-        </div>
+            <section class="shop-routine-section">
+                <div class="routine-heading">
+                    <p class="eyebrow">Featured routine</p>
+                    <h2>Cleanse. Treat. Hydrate.</h2>
+                    <p>
+                        A simple three-step routine for users who want calm, consistent skincare
+                        at home.
+                    </p>
+                </div>
 
-        <div>
-          <h2>Lush</h2>
-          <p>Student redesign prototype for INFO20005 Assignment 3.</p>
-        </div>
-      </footer>
-      <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
+                <div class="routine-grid">
+                    <article class="routine-step">
+                        <span>01</span>
+                        <h3>Cleanse</h3>
+                        <p>Begin with a gentle cleanser to refresh the skin without stripping it.</p>
+                    </article>
 
-      <script src="js/script.js"></script>
+                    <article class="routine-step">
+                        <span>02</span>
+                        <h3>Treat</h3>
+                        <p>Layer targeted serums to support hydration, brightness or skin clarity.</p>
+                    </article>
+
+                    <article class="routine-step">
+                        <span>03</span>
+                        <h3>Hydrate</h3>
+                        <p>Finish with moisturiser to support the skin barrier and softness.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section shop-products-section" id="shop-products">
+                <div class="shop-toolbar">
+                    <h2>Shop products</h2>
+
+                    <div class="product-filter-row" aria-label="Product filters">
+                        <button class="product-filter-chip active" type="button" data-product-category="all">All</button>
+                        <button class="product-filter-chip" type="button" data-product-category="cleansers">Cleansers</button>
+                        <button class="product-filter-chip" type="button" data-product-category="serums">Serums</button>
+                        <button class="product-filter-chip" type="button" data-product-category="moisturisers">Moisturisers</button>
+                        <button class="product-filter-chip" type="button" data-product-category="masks">Masks</button>
+                        <button class="product-filter-chip" type="button" data-product-category="body">Body care</button>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="product-grid"></div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <h3>Our stores</h3>
+                <p>Shop 2, 107 Hazel Glen Drive</p>
+                <p>Doreen, VIC 3754</p>
+                <p>176 Scarborough Beach Road</p>
+                <p>Mount Hawthorn, WA 6016</p>
+            </div>
+
+            <div>
+                <h3>Clinic hours</h3>
+                <p>Mon–Fri: 9am–5pm</p>
+                <p>Saturday: By appointment</p>
+            </div>
+
+            <div>
+                <h3>Socials</h3>
+                <p>Instagram | TikTok | Facebook</p>
+            </div>
+
+            <div>
+                <h2>Lush</h2>
+                <p>Student redesign prototype for INFO20005 Assignment 3.</p>
+            </div>
+        </footer>
+
+        <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
+
+        <script src="js/script.js"></script>
     </body>
 </html>

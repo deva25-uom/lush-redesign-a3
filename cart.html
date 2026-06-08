@@ -37,6 +37,11 @@
             </div>
         </header>
 
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
+
+
         <main>
             <section class="cart-page">
                 <div class="cart-heading">
@@ -55,18 +60,42 @@
 
                     <aside class="cart-summary">
                         <h2>Summary</h2>
+
                         <div class="summary-row">
                             <span>Total items</span>
                             <strong id="cart-count">0</strong>
                         </div>
 
-                        <p>
-                            Pricing is shown as starting prices. Final cost may vary depending on selected options.
-                        </p>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <strong id="cart-subtotal">$0</strong>
+                        </div>
 
-                        <a class="btn btn-primary cart-checkout-btn" href="booking.html">Continue to booking</a>
+                        <div class="summary-row">
+                            <span>GST fee</span>
+                            <strong id="cart-gst">$0.00</strong>
+                        </div>
+
+                        <div class="summary-row" id="delivery-row">
+                            <span>Delivery fee</span>
+                            <strong id="cart-delivery">$0.00</strong>
+                        </div>
+
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <strong id="cart-total">$0</strong>
+                        </div>
+
+                        <p>
+                            Subtotal is calculated using listed prices. Product-only orders include a $14 delivery fee and a 2% GST fee.
+                        </p>
+                        
+                        <a class="btn btn-primary cart-checkout-btn" id="cart-checkout-link" href="booking.html">
+                            Continue to booking
+                        </a>                        
                         <button class="clear-cart-btn" type="button" id="clear-cart">Clear cart</button>
                     </aside>
+
                 </div>
             </section>
         </main>
@@ -82,7 +111,7 @@
 
             <div>
                 <h3>Clinic hours</h3>
-                <p>Mon–Fri: 9am–5pm</p>
+                <p>Mon-Fri: 9am-5pm</p>
                 <p>Saturday: By appointment</p>
             </div>
 
