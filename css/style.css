@@ -1388,6 +1388,50 @@ a{
   margin-top: var(--space-sm);
 }
 
+.product-purchase-row {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+.product-quantity-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--color-primary-dark);
+  width: 100%;
+  min-height: 2.4rem;
+}
+
+.product-quantity-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: none;
+  background: transparent;
+  color: var(--color-primary-dark);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product-quantity-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.product-purchase-row .add-cart-btn {
+  margin-top: 0;
+}
+
+@media (min-width: 48rem) {
+  .product-purchase-row {
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+  }
+}
+
+
 /* PRODUCT IMAGES */
 
 .product-cream-cleanser {

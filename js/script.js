@@ -694,9 +694,9 @@ function showCartToast(itemName) {
 }
 
 document.addEventListener("click", function (event) {
-  if (!event.target.classList.contains("add-cart-btn")) return;
+  const button = event.target.closest(".add-cart-btn");
 
-  const button = event.target;
+  if (!button) return;
 
   if (button.dataset.hasAddons === "true") {
     openAddonModal(button);
@@ -704,6 +704,8 @@ document.addEventListener("click", function (event) {
   }
 
   if (!button.dataset.name) return;
+
+  const cartItems = getCartItems();
 
   if (cartItems.length === 0) {
     localStorage.removeItem("lushBooking");
@@ -717,10 +719,17 @@ document.addEventListener("click", function (event) {
 
   if (existingItem) {
     if (existingItem.type === "product") {
-      existingItem.quantity = Number(existingItem.quantity || 1) + 1;
+      const selectedQuantity = Number(selectedProductQuantities[button.dataset.name] || existingItem.quantity || 1);
+
+      existingItem.quantity = selectedQuantity;
       saveCartItems(cartItems);
-      showCartToast(existingItem.name);
+
+      button.textContent = "Added";
+      button.classList.add("is-added");
+
       updateCartCount();
+      updateProductQuantityControls();
+      showCartToast(existingItem.name);
 
       if (cartItemsContainer) {
         renderCartPage();
@@ -734,6 +743,11 @@ document.addEventListener("click", function (event) {
     return;
   }
 
+  const selectedQuantity =
+    button.dataset.type === "product"
+      ? Number(selectedProductQuantities[button.dataset.name] || 1)
+      : 1;
+
   const item = {
     name: button.dataset.name,
     category: button.dataset.category,
@@ -741,7 +755,7 @@ document.addEventListener("click", function (event) {
     priceNumber: Number(button.dataset.priceNumber),
     duration: button.dataset.duration,
     type: button.dataset.type || "service",
-    quantity: 1,
+    quantity: selectedQuantity,
     imageClass: button.dataset.imageClass
   };
 
@@ -752,12 +766,14 @@ document.addEventListener("click", function (event) {
   button.classList.add("is-added");
 
   updateCartCount();
+  updateAddButtonStates();
   showCartToast(item.name);
 
   if (cartItemsContainer) {
     renderCartPage();
   }
 });
+
 
 // NAIL ADD ON MODAL //
 
@@ -901,15 +917,8 @@ function updateAddButtonStates() {
 
   addButtons.forEach(function (button) {
     const itemName = button.dataset.name;
-    const itemType = button.dataset.type || "service";
 
     if (!itemName) return;
-
-    if (itemType === "product") {
-      button.textContent = "Add to cart";
-      button.classList.remove("is-added");
-      return;
-    }
 
     if (isItemInCart(itemName)) {
       button.textContent = "Added";
@@ -920,7 +929,6 @@ function updateAddButtonStates() {
     }
   });
 }
-
 
 updateCartCount();
 updateAddButtonStates();
@@ -1477,6 +1485,8 @@ const products = {
 const productGrid = document.querySelector("#product-grid");
 const productFilterChips = document.querySelectorAll(".product-filter-chip");
 
+const selectedProductQuantities = {};
+
 function renderProducts(category) {
   if (!productGrid || !products[category]) return;
 
@@ -1494,25 +1504,56 @@ function renderProducts(category) {
       <p>${product.description}</p>
       <p class="product-price">${product.price}</p>
 
-      <button
-        class="add-cart-btn"
-        type="button"
-        data-name="${product.name}"
-        data-category="${product.category}"
-        data-price="${product.price}"
-        data-price-number="${product.priceNumber}"
-        data-duration=""
-        data-type="product"
-        data-image-class="${product.imageClass}"
-      >
-        Add to cart
-      </button>
+      <div class="product-purchase-row">
+        <div class="product-quantity-control">
+          <button class="product-quantity-btn" type="button" data-product-name="${product.name}" data-action="decrease">−</button>
+          <span class="product-quantity-value" data-product-name="${product.name}">1</span>
+          <button class="product-quantity-btn" type="button" data-product-name="${product.name}" data-action="increase">+</button>
+        </div>
+
+        <button
+          class="add-cart-btn"
+          type="button"
+          data-name="${product.name}"
+          data-category="${product.category}"
+          data-price="${product.price}"
+          data-price-number="${product.priceNumber}"
+          data-duration=""
+          data-type="product"
+          data-image-class="${product.imageClass}"
+        >
+          Add to cart
+        </button>
+      </div>
+
+
     `;
 
     productGrid.appendChild(card);
   });
 
+  updateProductQuantityControls();
   updateAddButtonStates();
+}
+
+function updateProductQuantityControls() {
+  const quantityValues = document.querySelectorAll(".product-quantity-value");
+
+  quantityValues.forEach(function (quantityValue) {
+    const productName = quantityValue.dataset.productName;
+    const cartItems = getCartItems();
+
+    const cartItem = cartItems.find(function (item) {
+      return item.name === productName && item.type === "product";
+    });
+
+    if (cartItem) {
+      quantityValue.textContent = Number(cartItem.quantity || 1);
+      selectedProductQuantities[productName] = Number(cartItem.quantity || 1);
+    } else {
+      quantityValue.textContent = selectedProductQuantities[productName] || 1;
+    }
+  });
 }
 
 if (productGrid) {
@@ -1530,6 +1571,49 @@ productFilterChips.forEach(function (chip) {
     const selectedCategory = chip.dataset.productCategory;
     renderProducts(selectedCategory);
   });
+});
+
+document.addEventListener("click", function (event) {
+  const quantityButton = event.target.closest(".product-quantity-btn");
+
+  if (!quantityButton) return;
+
+  const productName = quantityButton.dataset.productName;
+  const action = quantityButton.dataset.action;
+
+  const cartItems = getCartItems();
+
+  const cartItem = cartItems.find(function (item) {
+    return item.name === productName && item.type === "product";
+  });
+
+  const currentQuantity = cartItem
+    ? Number(cartItem.quantity || 1)
+    : Number(selectedProductQuantities[productName] || 1);
+
+  let newQuantity = currentQuantity;
+
+  if (action === "increase") {
+    newQuantity = currentQuantity + 1;
+  }
+
+  if (action === "decrease") {
+    newQuantity = Math.max(1, currentQuantity - 1);
+  }
+
+  selectedProductQuantities[productName] = newQuantity;
+
+  if (cartItem) {
+    cartItem.quantity = newQuantity;
+    saveCartItems(cartItems);
+    updateCartCount();
+
+    if (cartItemsContainer) {
+      renderCartPage();
+    }
+  }
+
+  updateProductQuantityControls();
 });
 
 
