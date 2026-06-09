@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hydrafacial | Lush Skin & Body Redesign</title>
+        <title>Hot Stone Massage | Lush Skin & Body Redesign</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -34,59 +34,75 @@
                     </svg>
                     <span class="cart-count" aria-label="Cart item count">0</span>
                 </a>
-
             </div>
         </header>
 
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
+
         <main>
             <section class="detail-page">
-                <div class="detail-collage" aria-label="Hydrafacial treatment imagery">
-                    <div class="detail-image detail-hydra-one"></div>
-                    <div class="detail-image detail-hydra-two"></div>
-                    <div class="detail-image detail-hydra-three"></div>
-                    <div class="detail-image detail-hydra-four"></div>
+                <div class="detail-collage" aria-label="Hot stone massage treatment imagery">
+                    <div class="detail-image detail-massage-one"></div>
+                    <div class="detail-image detail-massage-two"></div>
+                    <div class="detail-image detail-massage-three"></div>
+                    <div class="detail-image detail-massage-four"></div>
                 </div>
 
                 <div class="detail-divider"></div>
 
                 <article class="detail-content">
-                    <p class="eyebrow">Facials</p>
+                    <p class="eyebrow">Massage</p>
 
-                    <h1>Hydrafacial</h1>
+                    <h1>Hot Stone Massage</h1>
 
                     <p class="detail-intro">
-                        A refreshing facial treatment designed to cleanse, exfoliate and hydrate the skin
-                        while supporting a smoother, brighter-looking finish.
+                        A warm, restorative massage experience designed to ease tension, support relaxation
+                        and create a deeper sense of calm.
                     </p>
 
                     <div class="detail-meta-row">
-                        <p class="detail-price">From $149</p>
+                        <p class="detail-price">From $139</p>
                         <div class="detail-submeta">
-                            <span>⌛︎ 60min</span>
-                            <span>★ 4.8 rated</span>
+                            <span>⌛︎ 75min</span>
+                            <span>★ 4.9 rated</span>
                         </div>
                     </div>
 
                     <div class="detail-info-block">
                         <h2>Best for</h2>
-                        <p>Dullness, dehydration, congestion and users wanting a low-friction skin refresh.</p>
+                        <p>Stress relief, body tension, deep relaxation and users wanting a slower massage experience.</p>
                     </div>
 
                     <div class="detail-info-block">
                         <h2>What to expect</h2>
                         <p>
-                            A non-invasive, medical-grade skin resurfacing treatment that uses patented 
-                            vortex-fusion technology to cleanse, extract, and hydrate the skin in a single session.
-                            Leave the session with your skin looking dewy, plump, and glowing. 
+                            Heated stones are used alongside massage techniques to encourage comfort and relaxation.
+                            Timing, price and staff preference remain clear before checkout.
                         </p>
                     </div>
 
                     <div class="detail-actions">
-                        <button class="add-cart-btn" type="button">Add to cart</button>
+                        <button 
+                            class="add-cart-btn" 
+                            type="button"
+                            data-name="Hot Stone Massage"
+                            data-category="Massage"
+                            data-price="From $139"
+                            data-price-number="139"
+                            data-duration="75 min"
+                            data-type="service"
+                            data-image-class="treatment-hot-stone"
+                        >
+                            Add to cart
+                        </button>
+
                         <a href="services.html" class="text-link">Back to services</a>
                     </div>
                 </article>
             </section>
+
             <section class="detail-reviews-section">
                 <h2>Customer reviews</h2>
 
@@ -97,8 +113,7 @@
                             <strong>Mia</strong>
                         </div>
                         <p>
-                            “My skin felt instantly cleaner and more hydrated. The treatment was
-                            calm, easy, and exactly what I needed.”
+                            “The hot stones made the massage feel deeply calming. I left feeling relaxed and lighter.”
                         </p>
                     </article>
 
@@ -108,8 +123,7 @@
                             <strong>Sarah</strong>
                         </div>
                         <p>
-                            “I liked that I could understand the treatment quickly before adding it 
-                            to cart. The page felt simple and reassuring.”
+                            “The page made it easy to understand the service before booking. The timing and price were clear.”
                         </p>
                     </article>
 
@@ -119,8 +133,7 @@
                             <strong>Anika</strong>
                         </div>
                         <p>
-                            “The Hydrafacial gave my skin a fresh glow. I would definitely book it 
-                            again before an event.”
+                            “A really soothing treatment. I liked being able to add it to cart and choose preferences later.”
                         </p>
                     </article>
 
@@ -130,8 +143,7 @@
                             <strong>Leah</strong>
                         </div>
                         <p>
-                            “The treatment details were easy to scan, and the price and time were 
-                            clear before booking.”
+                            “The service details felt minimal but useful. It did not feel overwhelming to compare options.”
                         </p>
                     </article>
                 </div>
@@ -163,6 +175,7 @@
                 <p>Student redesign prototype for INFO20005 Assignment 3.</p>
             </div>
         </footer>
+
         <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
 
         <script src="js/script.js"></script>

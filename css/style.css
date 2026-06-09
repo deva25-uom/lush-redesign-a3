@@ -1528,6 +1528,7 @@ a{
   background-position: center;
 }
 
+/* HYDRFACIAL DETAIL PAGE IMAGES */
 .detail-hydra-one {
   background-image: url("../images/hydrafacial-detail01.jpg");
 }
@@ -1544,6 +1545,93 @@ a{
   background-image: url("../images/hydrafacial-detail04.jpg");
 }
 
+/* DERMABLADING DETAIL PAGE IMAGES */
+.detail-derma-one {
+  background-image: url("../images/derma-detail-01.webp");
+}
+
+.detail-derma-two {
+  background-image: url("../images/derma-detail-02.jpg");
+}
+
+.detail-derma-three {
+  background-image: url("../images/derma-detail-03.jpg");
+}
+
+.detail-derma-four {
+  background-image: url("../images/derma-detail-04.jpg");
+}
+
+/* LYMPHATIC DRAINAGE DETAIL IMAGES */
+.detail-body-one {
+  background-image: url("../images/body-detail-1.jpg");
+}
+
+.detail-body-two {
+  background-image: url("../images/body-detail-2.png");
+}
+
+.detail-body-three {
+  background-image: url("../images/body-detail-3.webp");
+}
+
+.detail-body-four {
+  background-image: url("../images/body-detail-4.webp");
+}
+
+/* HOT STONE MASSAGE DETAIL IMAGES */
+.detail-massage-one {
+  background-image: url("../images/massage-detail-1.jpg");
+}
+
+.detail-massage-two {
+  background-image: url("../images/massage-detail-2.jpg");
+}
+
+.detail-massage-three {
+  background-image: url("../images/massage-detail-3.webp");
+}
+
+.detail-massage-four {
+  background-image: url("../images/massage-detail-4.jpg");
+}
+
+/* SHELLAC NAILS DETAIL IMAGES */
+.detail-nails-one {
+  background-image: url("../images/nails-detail-1.jpg");
+}
+
+.detail-nails-two {
+  background-image: url("../images/nails-detail-2.jpg");
+}
+
+.detail-nails-three {
+  background-image: url("../images/nails-detail-3.jpg");
+}
+
+.detail-nails-four {
+  background-image: url("../images/nails-detail-4.jpg");
+}
+
+/* EYEBROW WAX DETAIL IMAGES */
+.detail-brow-one {
+  background-image: url("../images/brow-detail-1.jpg");
+}
+
+.detail-brow-two {
+  background-image: url("../images/brow-detail-2.jpg");
+}
+
+.detail-brow-three {
+  background-image: url("../images/brow-detail-3.jpg");
+}
+
+.detail-brow-four {
+  background-image: url("../images/brow-detail-4.jpg");
+}
+
+
+
 .detail-divider {
   display: none;
 }
@@ -1558,7 +1646,7 @@ a{
   max-width: 10ch;
   margin-bottom: 0.35rem;
   font-size: clamp(3rem, 12vw, 5.5rem);
-  line-height: 0.9;
+  line-height: 0.95;
   letter-spacing: -0.07em;
 }
 
@@ -1697,6 +1785,109 @@ a{
 .detail-review-card p {
   color: var(--color-muted);
 }
+
+/* NAIL ADD ONS */
+
+.nail-addons-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+.nail-addons-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+}
+
+.nail-addons-list div:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.nail-addons-list span {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+/* ADD ON MODAL */
+
+.addon-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.addon-modal.is-open {
+  display: flex;
+}
+
+.addon-modal-panel {
+  position: relative;
+  width: min(100%, 34rem);
+  background: var(--color-bg);
+  padding: var(--space-lg);
+}
+
+.addon-modal-panel h2 {
+  margin-bottom: var(--space-sm);
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.addon-modal-panel p {
+  color: var(--color-muted);
+}
+
+.addon-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.addon-option-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: var(--space-md) 0;
+}
+
+.addon-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+  cursor: pointer;
+}
+
+.addon-option:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.addon-option input {
+  accent-color: var(--color-primary-dark);
+}
+
+.addon-option strong {
+  color: var(--color-primary-dark);
+}
+
 
 @media (min-width: 48rem) {
   .detail-page {
@@ -2034,6 +2225,32 @@ a{
   font-weight: 700;
 }
 
+.cart-item-main {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.cart-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-surface);
+}
+
+.cart-item-content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media (max-width: 30rem) {
+  .cart-item-main {
+    grid-template-columns: 4rem 1fr;
+  }
+}
+
 @media (min-width: 48rem) {
   .cart-page {
     padding: 7rem var(--space-xl) var(--space-xl);
@@ -2247,6 +2464,23 @@ a{
   width: 100%;
 }
 
+.payment-summary-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.payment-summary-grid h2 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+}
+
+.payment-total-box {
+  margin-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
 @media (min-width: 48rem) {
   .payment-page {
     padding: 7rem var(--space-xl) var(--space-xl);
@@ -2259,6 +2493,11 @@ a{
   .payment-submit-btn {
     width: 40%;
   }
+
+  .payment-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 /* ---------------------------------------------------------------------------------------------------------- */

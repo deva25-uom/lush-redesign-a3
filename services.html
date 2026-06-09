@@ -100,6 +100,52 @@
                 <p>Student redesign prototype for INFO20005 Assignment 3.</p>
             </div>
         </footer>
+
+        <div class="addon-modal" id="addon-modal" aria-hidden="true">
+            <div class="addon-modal-panel">
+                <button class="addon-close-btn" type="button" id="addon-close" aria-label="Close add-ons">
+                    ×
+                </button>
+
+                <p class="eyebrow">Optional add-ons</p>
+                <h2>Customise your nail service</h2>
+                <p>
+                    Select any extras you would like to add to this nail service.
+                </p>
+
+                <div class="addon-option-list">
+                    <label class="addon-option">
+                        <input type="checkbox" value="Removal" data-price-number="15">
+                        <span>Removal</span>
+                        <strong>+$15</strong>
+                    </label>
+
+                    <label class="addon-option">
+                        <input type="checkbox" value="Extensions" data-price-number="20">
+                        <span>Extensions</span>
+                        <strong>+$20</strong>
+                    </label>
+
+                    <label class="addon-option">
+                        <input type="checkbox" value="Nail art" data-price-number="15">
+                        <span>Nail art</span>
+                        <strong>+$15</strong>
+                    </label>
+
+                    <label class="addon-option">
+                        <input type="checkbox" value="Spa upgrade" data-price-number="15">
+                        <span>Spa upgrade</span>
+                        <strong>+$15</strong>
+                    </label>
+                </div>
+
+                <button class="btn btn-primary" type="button" id="addon-confirm">
+                    Add selected service
+                </button>
+            </div>
+        </div>
+
+
         <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
 
 

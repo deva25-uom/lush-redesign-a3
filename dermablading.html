@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hydrafacial | Lush Skin & Body Redesign</title>
+        <title>Dermalblading | Lush Skin & Body Redesign</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -34,17 +34,20 @@
                     </svg>
                     <span class="cart-count" aria-label="Cart item count">0</span>
                 </a>
-
             </div>
         </header>
 
+        <button class="back-button" type="button" onclick="history.back()">
+            ← Back
+        </button>
+
         <main>
             <section class="detail-page">
-                <div class="detail-collage" aria-label="Hydrafacial treatment imagery">
-                    <div class="detail-image detail-hydra-one"></div>
-                    <div class="detail-image detail-hydra-two"></div>
-                    <div class="detail-image detail-hydra-three"></div>
-                    <div class="detail-image detail-hydra-four"></div>
+                <div class="detail-collage" aria-label="Dermalblading treatment imagery">
+                    <div class="detail-image detail-derma-one"></div>
+                    <div class="detail-image detail-derma-two"></div>
+                    <div class="detail-image detail-derma-three"></div>
+                    <div class="detail-image detail-derma-four"></div>
                 </div>
 
                 <div class="detail-divider"></div>
@@ -52,41 +55,54 @@
                 <article class="detail-content">
                     <p class="eyebrow">Facials</p>
 
-                    <h1>Hydrafacial</h1>
+                    <h1>Dermalblading</h1>
 
                     <p class="detail-intro">
-                        A refreshing facial treatment designed to cleanse, exfoliate and hydrate the skin
-                        while supporting a smoother, brighter-looking finish.
+                        A skin-smoothing facial treatment that gently removes dead skin cells and fine facial hair
+                        to support a softer, brighter-looking finish.
                     </p>
 
                     <div class="detail-meta-row">
-                        <p class="detail-price">From $149</p>
+                        <p class="detail-price">From $130</p>
                         <div class="detail-submeta">
-                            <span>⌛︎ 60min</span>
-                            <span>★ 4.8 rated</span>
+                            <span>⌛︎ 45min</span>
+                            <span>★ 4.7 rated</span>
                         </div>
                     </div>
 
                     <div class="detail-info-block">
                         <h2>Best for</h2>
-                        <p>Dullness, dehydration, congestion and users wanting a low-friction skin refresh.</p>
+                        <p>Texture, dullness, dry surface build-up and smoother makeup application.</p>
                     </div>
 
                     <div class="detail-info-block">
                         <h2>What to expect</h2>
                         <p>
-                            A non-invasive, medical-grade skin resurfacing treatment that uses patented 
-                            vortex-fusion technology to cleanse, extract, and hydrate the skin in a single session.
-                            Leave the session with your skin looking dewy, plump, and glowing. 
+                            This treatment focuses on gentle exfoliation and surface smoothing. It is designed
+                            for users wanting a refined, fresh skin finish without a complex booking process.
                         </p>
                     </div>
 
                     <div class="detail-actions">
-                        <button class="add-cart-btn" type="button">Add to cart</button>
+                        <button 
+                            class="add-cart-btn" 
+                            type="button"
+                            data-name="Dermalblading"
+                            data-category="Facials"
+                            data-price="From $130"
+                            data-price-number="130"
+                            data-duration="45 min"
+                            data-type="service"
+                            data-image-class="treatment-dermablading"
+                        >
+                            Add to cart
+                        </button>
+
                         <a href="services.html" class="text-link">Back to services</a>
                     </div>
                 </article>
             </section>
+
             <section class="detail-reviews-section">
                 <h2>Customer reviews</h2>
 
@@ -97,8 +113,7 @@
                             <strong>Mia</strong>
                         </div>
                         <p>
-                            “My skin felt instantly cleaner and more hydrated. The treatment was
-                            calm, easy, and exactly what I needed.”
+                            “My skin felt smoother straight away. The treatment was quick, calm and easy to understand.”
                         </p>
                     </article>
 
@@ -108,8 +123,7 @@
                             <strong>Sarah</strong>
                         </div>
                         <p>
-                            “I liked that I could understand the treatment quickly before adding it 
-                            to cart. The page felt simple and reassuring.”
+                            “My skin specialist was so friendly, loved her! absolutely would definitely reccommend!”
                         </p>
                     </article>
 
@@ -119,8 +133,7 @@
                             <strong>Anika</strong>
                         </div>
                         <p>
-                            “The Hydrafacial gave my skin a fresh glow. I would definitely book it 
-                            again before an event.”
+                            “Dermalblading made my skin feel soft and fresh. It was a good low-pressure treatment.”
                         </p>
                     </article>
 
@@ -130,8 +143,7 @@
                             <strong>Leah</strong>
                         </div>
                         <p>
-                            “The treatment details were easy to scan, and the price and time were 
-                            clear before booking.”
+                            “The process was so simple, i loved every second of it. so worth it!”
                         </p>
                     </article>
                 </div>
@@ -163,6 +175,7 @@
                 <p>Student redesign prototype for INFO20005 Assignment 3.</p>
             </div>
         </footer>
+
         <div class="cart-toast" id="cart-toast" aria-live="polite"></div>
 
         <script src="js/script.js"></script>

@@ -54,7 +54,7 @@ const services = {
       price: "From $139",
       duration: "75 min",
       imageClass: "treatment-hot-stone",
-      detailPage: "relaxation-massage.html"
+      detailPage: "hot-stone-massage.html"
     },
 
     {
@@ -65,7 +65,9 @@ const services = {
       price: "From $65",
       duration: "45-75 min",
       imageClass: "treatment-shellac-nails",
-      detailPage: "shellac-nails.html"
+      detailPage: "shellac-nails.html",
+      hasAddons: true
+
     },
 
     {
@@ -288,7 +290,8 @@ const services = {
       price: "From $65",
       duration: "45-75 min",
       imageClass: "treatment-shellac-nails",
-      detailPage: "shellac-nails.html"
+      detailPage: "shellac-nails.html",
+      hasAddons: true
     },
     {
       category: "Nails",
@@ -410,7 +413,7 @@ function renderServices(category) {
 
     const alreadyAdded = isItemInCart(service.name);
 
-    const addButton = `
+    const addButton = ` 
       <button 
         class="add-cart-btn ${alreadyAdded ? "is-added" : ""}" 
         type="button"
@@ -421,10 +424,12 @@ function renderServices(category) {
         data-duration="${service.duration}"
         data-type="service"
         data-image-class="${service.imageClass}"
+        ${service.hasAddons ? 'data-has-addons="true"' : ""}
       >
         ${alreadyAdded ? "Added" : "Add to cart"}
       </button>
     `;
+
 
     const detailLink = `<a href="${service.detailPage}" class="text-link">View details</a>`;
 
@@ -526,6 +531,11 @@ document.addEventListener("click", function (event) {
 
   const button = event.target;
 
+  if (button.dataset.hasAddons === "true") {
+    openAddonModal(button);
+    return;
+  }
+
   if (!button.dataset.name) return;
 
   const cartItems = getCartItems();
@@ -577,6 +587,108 @@ document.addEventListener("click", function (event) {
     renderCartPage();
   }
 });
+
+// NAIL ADD ON MODAL //
+
+let pendingAddonButton = null;
+
+const addonModal = document.querySelector("#addon-modal");
+const addonCloseButton = document.querySelector("#addon-close");
+const addonConfirmButton = document.querySelector("#addon-confirm");
+
+function openAddonModal(button) {
+  pendingAddonButton = button;
+
+  if (!addonModal) return;
+
+  addonModal.classList.add("is-open");
+  addonModal.setAttribute("aria-hidden", "false");
+}
+
+function closeAddonModal() {
+  if (!addonModal) return;
+
+  addonModal.classList.remove("is-open");
+  addonModal.setAttribute("aria-hidden", "true");
+
+  const addonCheckboxes = document.querySelectorAll(".addon-option input");
+  addonCheckboxes.forEach(function (checkbox) {
+    checkbox.checked = false;
+  });
+
+  pendingAddonButton = null;
+}
+
+if (addonCloseButton) {
+  addonCloseButton.addEventListener("click", closeAddonModal);
+}
+
+if (addonModal) {
+  addonModal.addEventListener("click", function (event) {
+    if (event.target === addonModal) {
+      closeAddonModal();
+    }
+  });
+}
+
+if (addonConfirmButton) {
+  addonConfirmButton.addEventListener("click", function () {
+    if (!pendingAddonButton) return;
+
+    const addonCheckboxes = document.querySelectorAll(".addon-option input:checked");
+
+    const selectedAddons = Array.from(addonCheckboxes).map(function (checkbox) {
+      return {
+        name: checkbox.value,
+        priceNumber: Number(checkbox.dataset.priceNumber)
+      };
+    });
+
+    const addonTotal = selectedAddons.reduce(function (total, addon) {
+      return total + addon.priceNumber;
+    }, 0);
+
+    const basePriceNumber = Number(pendingAddonButton.dataset.priceNumber);
+    const finalPriceNumber = basePriceNumber + addonTotal;
+
+    const cartItems = getCartItems();
+
+    const existingItem = cartItems.find(function (item) {
+      return item.name === pendingAddonButton.dataset.name;
+    });
+
+    if (existingItem) {
+      existingItem.addons = selectedAddons;
+      existingItem.priceNumber = finalPriceNumber;
+      existingItem.price = `From $${finalPriceNumber}`;
+    } else {
+      const item = {
+        name: pendingAddonButton.dataset.name,
+        category: pendingAddonButton.dataset.category,
+        price: `From $${finalPriceNumber}`,
+        priceNumber: finalPriceNumber,
+        duration: pendingAddonButton.dataset.duration,
+        type: pendingAddonButton.dataset.type || "service",
+        quantity: 1,
+        imageClass: pendingAddonButton.dataset.imageClass,
+        addons: selectedAddons
+      };
+
+      cartItems.push(item);
+    }
+
+    saveCartItems(cartItems);
+
+    pendingAddonButton.textContent = "Added";
+    pendingAddonButton.classList.add("is-added");
+
+    updateCartCount();
+    updateAddButtonStates();
+    showCartToast(pendingAddonButton.dataset.name);
+
+    closeAddonModal();
+  });
+}
 
 document.addEventListener("click", function (event) {
   if (!event.target.classList.contains("quantity-btn")) return;
@@ -673,7 +785,7 @@ function renderCartPage() {
     return total + Number(item.priceNumber || 0) * quantity;
   }, 0);
 
-  const deliveryFee = hasProducts && !hasServices ? 14 : 0;
+  const deliveryFee = hasProducts ? 14 : 0;
   const gst = subtotal * 0.02;
   const totalPrice = subtotal + deliveryFee + gst;
 
@@ -736,7 +848,6 @@ function renderCartPage() {
       `
       : "";
 
-
       cartItem.innerHTML = `
         <div class="cart-item-main">
           <div class="cart-thumb ${item.imageClass || ""}"></div>
@@ -752,7 +863,7 @@ function renderCartPage() {
                 ${quantityControls}
 
                 <button class="remove-item-btn" type="button" data-index="${index}" aria-label="Remove ${item.name}">
-                  ×
+                  x
                 </button>
               </div>
             </div>
@@ -760,12 +871,20 @@ function renderCartPage() {
             <div class="cart-item-details">
               <p>${item.type === "product" ? "Skincare product" : item.duration}</p>
               <p>${item.price}</p>
+
+              ${
+                item.addons && item.addons.length > 0
+                  ? `<p>Add-ons: ${item.addons.map(function (addon) {
+                      return addon.name;
+                    }).join(", ")}</p>`
+                  : ""
+              }
+
               <strong>$${lineTotal.toFixed(2)}</strong>
             </div>
           </div>
         </div>
       `;
-
 
     cartItemsContainer.appendChild(cartItem);
   });
@@ -1240,62 +1359,185 @@ productFilterChips.forEach(function (chip) {
 // PAYMENT PAGE //
 
 const paymentForm = document.querySelector("#payment-form");
+const paymentContactSection = document.querySelector("#payment-contact-section");
+const paymentDeliverySection = document.querySelector("#payment-delivery-section");
+const paymentServiceList = document.querySelector("#payment-service-list");
 const paymentProductList = document.querySelector("#payment-product-list");
+const paymentTotal = document.querySelector("#payment-total");
 
-function renderPaymentProductList() {
-  if (!paymentProductList) return;
+function setRequiredFields(container, isRequired) {
+  if (!container) return;
 
+  const fields = container.querySelectorAll("input, select, textarea");
+
+  fields.forEach(function (field) {
+    field.required = isRequired;
+  });
+}
+
+function renderPaymentPageSummary() {
+  if (!paymentForm) return;
+
+  const bookingData = JSON.parse(localStorage.getItem("lushBooking"));
   const cartItems = getCartItems();
+
+  const serviceItems = cartItems.filter(function (item) {
+    return item.type === "service";
+  });
 
   const productItems = cartItems.filter(function (item) {
     return item.type === "product";
   });
 
-  paymentProductList.innerHTML = "";
+  const hasBookingDetails = Boolean(bookingData);
+  const hasProducts = productItems.length > 0;
 
-  if (productItems.length === 0) {
-    paymentProductList.innerHTML = `
-      <p class="empty-cart-message">
-        No skincare products selected.
-      </p>
-    `;
-    return;
+  if (paymentContactSection) {
+    paymentContactSection.style.display = hasBookingDetails ? "none" : "block";
+    setRequiredFields(paymentContactSection, !hasBookingDetails);
   }
 
-  productItems.forEach(function (item) {
+  if (paymentDeliverySection) {
+    paymentDeliverySection.style.display = hasProducts ? "block" : "none";
+    setRequiredFields(paymentDeliverySection, hasProducts);
+  }
+
+  if (paymentServiceList) {
+    paymentServiceList.innerHTML = "";
+
+    if (serviceItems.length === 0) {
+      paymentServiceList.innerHTML = `
+        <p class="empty-cart-message">
+          No services selected.
+        </p>
+      `;
+    } else {
+      serviceItems.forEach(function (item) {
+        const serviceItem = document.createElement("article");
+        serviceItem.className = "booking-product-item";
+
+        serviceItem.innerHTML = `
+          <div class="booking-item-left">
+            <div class="booking-thumb ${item.imageClass || ""}"></div>
+
+            <div>
+              <strong>${item.name}</strong>
+              <p>${item.category} · ${item.duration}</p>
+            </div>
+          </div>
+
+          <strong>$${Number(item.priceNumber || 0).toFixed(2)}</strong>
+        `;
+
+        paymentServiceList.appendChild(serviceItem);
+      });
+    }
+  }
+
+  if (paymentProductList) {
+    paymentProductList.innerHTML = "";
+
+    if (productItems.length === 0) {
+      paymentProductList.innerHTML = `
+        <p class="empty-cart-message">
+          No skincare products selected.
+        </p>
+      `;
+    } else {
+      productItems.forEach(function (item) {
+        const quantity = Number(item.quantity || 1);
+        const lineTotal = Number(item.priceNumber || 0) * quantity;
+
+        const productItem = document.createElement("article");
+        productItem.className = "booking-product-item";
+
+        productItem.innerHTML = `
+          <div class="booking-item-left">
+            <div class="booking-thumb ${item.imageClass || ""}"></div>
+
+            <div>
+              <strong>${item.name}</strong>
+              <p>${item.category} · Qty ${quantity}</p>
+            </div>
+          </div>
+
+          <strong>$${lineTotal.toFixed(2)}</strong>
+        `;
+
+        paymentProductList.appendChild(productItem);
+      });
+    }
+  }
+
+  const subtotal = cartItems.reduce(function (total, item) {
     const quantity = Number(item.quantity || 1);
-    const lineTotal = Number(item.priceNumber || 0) * quantity;
+    return total + Number(item.priceNumber || 0) * quantity;
+  }, 0);
 
-    const productItem = document.createElement("article");
-    productItem.className = "booking-product-item";
+  const deliveryFee = hasProducts ? 14 : 0;
+  const gst = subtotal * 0.02;
+  const totalPrice = subtotal + deliveryFee + gst;
 
-    productItem.innerHTML = `
-      <div>
-        <strong>${item.name}</strong>
-        <p>${item.category} · Qty ${quantity}</p>
+  if (paymentTotal) {
+    paymentTotal.innerHTML = `
+      <div class="confirmation-row">
+        <span>Subtotal</span>
+        <strong>$${subtotal.toFixed(2)}</strong>
       </div>
 
-      <strong>$${lineTotal.toFixed(2)}</strong>
+      ${
+        deliveryFee > 0
+          ? `
+            <div class="confirmation-row">
+              <span>Delivery fee</span>
+              <strong>$${deliveryFee.toFixed(2)}</strong>
+            </div>
+          `
+          : ""
+      }
+
+      <div class="confirmation-row">
+        <span>GST fee</span>
+        <strong>$${gst.toFixed(2)}</strong>
+      </div>
+
+      <div class="confirmation-row total">
+        <span>Total</span>
+        <strong>$${totalPrice.toFixed(2)}</strong>
+      </div>
     `;
-
-    paymentProductList.appendChild(productItem);
-  });
-}
-
-if (paymentProductList) {
-  renderPaymentProductList();
+  }
 }
 
 if (paymentForm) {
+  renderPaymentPageSummary();
+
   paymentForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    const bookingData = JSON.parse(localStorage.getItem("lushBooking"));
+    const cartItems = getCartItems();
+
+    const productItems = cartItems.filter(function (item) {
+      return item.type === "product";
+    });
+
+    const hasProducts = productItems.length > 0;
+
     const paymentData = {
-      name: document.querySelector("#payment-name").value,
-      email: document.querySelector("#payment-email").value,
-      phone: document.querySelector("#payment-phone").value,
-      delivery: document.querySelector("#payment-delivery").value,
-      cardholder: document.querySelector("#card-name").value
+      name: bookingData ? bookingData.name : document.querySelector("#payment-name").value,
+      email: bookingData ? bookingData.email : document.querySelector("#payment-email").value,
+      phone: bookingData ? bookingData.phone : document.querySelector("#payment-phone").value,
+      cardholder: document.querySelector("#card-name").value,
+      delivery: hasProducts ? document.querySelector("#payment-delivery").value : "",
+      address: hasProducts
+        ? {
+            street: document.querySelector("#payment-address").value,
+            suburb: document.querySelector("#payment-suburb").value,
+            state: document.querySelector("#payment-state").value,
+            postcode: document.querySelector("#payment-postcode").value
+          }
+        : null
     };
 
     localStorage.setItem("lushPayment", JSON.stringify(paymentData));
@@ -1339,7 +1581,7 @@ function renderConfirmationPage() {
 
   const hasServices = serviceItems.length > 0;
   const hasProducts = productItems.length > 0;
-  const deliveryFee = hasProducts && !hasServices ? 14 : 0;
+  const deliveryFee = hasProducts ? 14 : 0;
   const gst = subtotal * 0.02;
   const totalPrice = subtotal + deliveryFee + gst;
 
@@ -1367,6 +1609,11 @@ function renderConfirmationPage() {
       ${
         customerData.delivery
           ? `<p><strong>Delivery:</strong> ${customerData.delivery}</p>`
+          : ""
+      }
+      ${
+        paymentData && paymentData.address
+          ? `<p><strong>Address:</strong> ${paymentData.address.street}, ${paymentData.address.suburb}, ${paymentData.address.state} ${paymentData.address.postcode}</p>`
           : ""
       }
       ${
