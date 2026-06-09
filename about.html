@@ -22,10 +22,12 @@
 
             <div class="header-actions">
                 <form class="search-form" role="search">
-                    <label class="sr-only" for="site-search">Search services</label>
+                    <label class="sr-only" for="site-search">Search services and products</label>
                     <button class="search-toggle" type="button" aria-label="Open search">⌕</button>
-                    <input id="site-search" type="search" placeholder="Search services...">
+                    <input id="site-search" type="search" placeholder="Search services or products..." autocomplete="off">
+                    <div class="search-results" id="search-results"></div>
                 </form>
+
                 <a class="cart-link" href="cart.html" aria-label="View cart">
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M6 8h12l-1 12H7L6 8Z"></path>

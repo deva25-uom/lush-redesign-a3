@@ -4,13 +4,178 @@ const searchForm = document.querySelector(".search-form");
 const searchButton = document.querySelector(".search-toggle");
 const searchInput = document.querySelector("#site-search");
 
+let searchResultsPanel = null;
+
+function createSearchResultsPanel() {
+  if (!searchForm || searchResultsPanel) return;
+
+  searchResultsPanel = document.createElement("div");
+  searchResultsPanel.className = "search-results-panel";
+  searchResultsPanel.setAttribute("aria-live", "polite");
+
+  searchForm.appendChild(searchResultsPanel);
+}
+
+function getUniqueSearchItems(sourceObject, type) {
+  const seen = new Set();
+  const results = [];
+
+  Object.values(sourceObject).forEach(function (group) {
+    group.forEach(function (item) {
+      const key = `${type}-${item.name}`;
+
+      if (seen.has(key)) return;
+
+      seen.add(key);
+
+      results.push({
+        type: type,
+        name: item.name,
+        category: item.category,
+        description: item.description,
+        price: item.price,
+        imageClass: item.imageClass,
+        link:
+          type === "service"
+            ? item.detailPage || `services.html?category=${item.category.toLowerCase()}`
+            : "shop.html#shop-products"
+      });
+    });
+  });
+
+  return results;
+}
+
+function getSearchItems() {
+  const serviceItems = getUniqueSearchItems(services, "service");
+  const productItems = getUniqueSearchItems(products, "product");
+
+  return {
+    services: serviceItems,
+    products: productItems
+  };
+}
+
+function itemMatchesSearch(item, query) {
+  const searchableText = `
+    ${item.name}
+    ${item.category}
+    ${item.description}
+  `.toLowerCase();
+
+  return searchableText.includes(query);
+}
+
+function renderSearchGroup(title, items) {
+  if (items.length === 0) return "";
+
+  const resultCards = items
+    .map(function (item) {
+      return `
+        <a class="search-result-item" href="${item.link}">
+          <span class="search-result-thumb ${item.imageClass || ""}"></span>
+
+          <span>
+            <strong>${item.name}</strong>
+            <small>${item.type === "service" ? "Service" : "Product"} · ${item.category}</small>
+            <em>${item.price}</em>
+          </span>
+        </a>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="search-result-group">
+      <p>${title}</p>
+      ${resultCards}
+    </div>
+  `;
+}
+
+function renderSearchResults() {
+  if (!searchResultsPanel || !searchInput) return;
+
+  const query = searchInput.value.trim().toLowerCase();
+  const searchItems = getSearchItems();
+
+  let matchingServices = [];
+  let matchingProducts = [];
+
+  if (query.length === 0) {
+    matchingServices = searchItems.services.slice(0, 4);
+    matchingProducts = searchItems.products.slice(0, 4);
+  } else {
+    matchingServices = searchItems.services
+      .filter(function (item) {
+        return itemMatchesSearch(item, query);
+      })
+      .slice(0, 5);
+
+    matchingProducts = searchItems.products
+      .filter(function (item) {
+        return itemMatchesSearch(item, query);
+      })
+      .slice(0, 5);
+  }
+
+  if (matchingServices.length === 0 && matchingProducts.length === 0) {
+    searchResultsPanel.innerHTML = `
+      <div class="search-empty">
+        No results found. Try searching for facials, nails, massage, serum or moisturiser.
+      </div>
+    `;
+  } else {
+    searchResultsPanel.innerHTML = `
+      ${query.length === 0 ? `<div class="search-featured-label">Featured results</div>` : ""}
+      ${renderSearchGroup("Services", matchingServices)}
+      ${renderSearchGroup("Products", matchingProducts)}
+    `;
+  }
+
+  searchResultsPanel.classList.add("is-visible");
+}
+
 if (searchForm && searchButton && searchInput) {
+  createSearchResultsPanel();
+
   searchButton.addEventListener("click", function () {
     searchForm.classList.add("is-open");
     searchInput.focus();
+    renderSearchResults();
+  });
+
+  searchInput.addEventListener("input", function () {
+    searchForm.classList.add("is-open");
+    renderSearchResults();
+  });
+
+  searchInput.addEventListener("focus", function () {
+    if (searchForm.classList.contains("is-open")) {
+      renderSearchResults();
+    }
+  });
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const firstResult = searchResultsPanel.querySelector(".search-result-item");
+
+    if (firstResult) {
+      window.location.href = firstResult.href;
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!searchForm.contains(event.target)) {
+      searchResultsPanel.classList.remove("is-visible");
+
+      if (searchInput.value.trim() === "") {
+        searchForm.classList.remove("is-open");
+      }
+    }
   });
 }
-
 
 // SERVICES FILTERING //
 
@@ -111,7 +276,7 @@ const services = {
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-anti-aging",
-      detailPage: "anti-aging-facial.html"
+      detailPage: ""
     },
     {
       category: "Facials",
@@ -121,7 +286,7 @@ const services = {
       price: "From $120",
       duration: "45 min",
       imageClass: "treatment-microdermabrasion",
-      detailPage: "microdermabrasion-facial.html"
+      detailPage: ""
     },
     {
       category: "Facials",
@@ -131,7 +296,7 @@ const services = {
       price: "From $110",
       duration: "45 min",
       imageClass: "treatment-peel",
-      detailPage: "peel-facial.html"
+      detailPage: ""
     },
     {
       category: "Facials",
@@ -141,7 +306,7 @@ const services = {
       price: "From $125",
       duration: "60 min",
       imageClass: "treatment-acne",
-      detailPage: "acne-treatment-facial.html"
+      detailPage: ""
     }
   ],
 
@@ -154,7 +319,7 @@ const services = {
       price: "From $115",
       duration: "45 min",
       imageClass: "treatment-back-facial",
-      detailPage: "bespoke-back-facial.html"
+      detailPage: ""
     },
     {
       category: "Body",
@@ -164,7 +329,7 @@ const services = {
       price: "From $160",
       duration: "60 min",
       imageClass: "treatment-body-sculpting",
-      detailPage: "body-sculpting.html"
+      detailPage: ""
     },
     {
       category: "Body",
@@ -184,7 +349,7 @@ const services = {
       price: "From $145",
       duration: "60 min",
       imageClass: "treatment-cellulite",
-      detailPage: "cellulite-treatment.html"
+      detailPage: ""
     },
     {
       category: "Body",
@@ -194,7 +359,7 @@ const services = {
       price: "From $130",
       duration: "60 min",
       imageClass: "treatment-exfoliation",
-      detailPage: "full-body-exfoliation.html"
+      detailPage: ""
     },
     {
       category: "Body",
@@ -204,7 +369,7 @@ const services = {
       price: "From $155",
       duration: "60 min",
       imageClass: "treatment-skin-tightening",
-      detailPage: "skin-tightening.html"
+      detailPage: ""
     }
   ],
 
@@ -217,7 +382,7 @@ const services = {
       price: "From $129",
       duration: "60 min",
       imageClass: "treatment-relaxation-massage",
-      detailPage: "relaxation-massage.html"
+      detailPage: ""
     },
     {
       category: "Massage",
@@ -237,7 +402,7 @@ const services = {
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-aromatherapy",
-      detailPage: "aromatherapy-massage.html"
+      detailPage: ""
     },
     {
       category: "Massage",
@@ -247,7 +412,7 @@ const services = {
       price: "From $145",
       duration: "60 min",
       imageClass: "treatment-myofascial",
-      detailPage: "myofascial-release.html"
+      detailPage: ""
     },
     {
       category: "Massage",
@@ -257,7 +422,7 @@ const services = {
       price: "From $135",
       duration: "60 min",
       imageClass: "treatment-pregnancy",
-      detailPage: "pregnancy-massage.html"
+      detailPage: ""
     },
     {
       category: "Massage",
@@ -267,7 +432,7 @@ const services = {
       price: "From $75",
       duration: "30 min",
       imageClass: "treatment-head-neck",
-      detailPage: "head-neck-shoulder-massage.html"
+      detailPage: ""
     }
   ],
 
@@ -280,7 +445,7 @@ const services = {
       price: "From $45",
       duration: "30-60 min",
       imageClass: "treatment-classic-nails",
-      detailPage: "classic-nails.html"
+      detailPage: ""
     },
     {
       category: "Nails",
@@ -301,7 +466,7 @@ const services = {
       price: "From $75",
       duration: "50-80 min",
       imageClass: "treatment-gel-nails",
-      detailPage: "gel-nails.html"
+      detailPage: ""
     },
     {
       category: "Nails",
@@ -311,7 +476,7 @@ const services = {
       price: "From $85",
       duration: "60-90 min",
       imageClass: "treatment-builder-gel",
-      detailPage: "builder-gel.html"
+      detailPage: ""
     },
     {
       category: "Nails",
@@ -321,7 +486,7 @@ const services = {
       price: "From $95",
       duration: "75-100 min",
       imageClass: "treatment-acrylic-nails",
-      detailPage: "acrylic-nails.html"
+      detailPage: ""
     },
     {
       category: "Nails",
@@ -331,7 +496,7 @@ const services = {
       price: "From $15",
       duration: "15-45 min",
       imageClass: "treatment-nail-addons",
-      detailPage: "nail-addons.html"
+      detailPage: ""
     }
   ],
 
@@ -344,7 +509,7 @@ const services = {
       price: "From $120",
       duration: "75 min",
       imageClass: "treatment-full-body-wax",
-      detailPage: "full-body-wax.html"
+      detailPage: ""
     },
     {
       category: "Beauty",
@@ -364,7 +529,7 @@ const services = {
       price: "From $65",
       duration: "35 min",
       imageClass: "treatment-brazilian",
-      detailPage: "brazilian-wax.html"
+      detailPage: ""
     },
     {
       category: "Beauty",
@@ -374,7 +539,7 @@ const services = {
       price: "From $55",
       duration: "30 min",
       imageClass: "treatment-spray-tan",
-      detailPage: "spray-tan.html"
+      detailPage: ""
     },
     {
       category: "Beauty",
@@ -384,7 +549,7 @@ const services = {
       price: "From $85",
       duration: "45 min",
       imageClass: "treatment-lash-lift",
-      detailPage: "lash-lift.html"
+      detailPage: ""
     },
     {
       category: "Beauty",
@@ -394,7 +559,7 @@ const services = {
       price: "From $70",
       duration: "45 min",
       imageClass: "treatment-arms-legs",
-      detailPage: "arms-legs-wax.html"
+      detailPage: ""
     }
   ]
 };
@@ -431,7 +596,9 @@ function renderServices(category) {
     `;
 
 
-    const detailLink = `<a href="${service.detailPage}" class="text-link">View details</a>`;
+    const detailLink = service.detailPage
+      ? `<a href="${service.detailPage}" class="text-link">View details</a>`
+      : "";
 
     card.innerHTML = `
       <div class="treatment-image ${service.imageClass}"></div>
@@ -538,7 +705,11 @@ document.addEventListener("click", function (event) {
 
   if (!button.dataset.name) return;
 
-  const cartItems = getCartItems();
+  if (cartItems.length === 0) {
+    localStorage.removeItem("lushBooking");
+    localStorage.removeItem("lushPayment");
+    localStorage.removeItem("lushConfirmedCart");
+  }
 
   const existingItem = cartItems.find(function (item) {
     return item.name === button.dataset.name;
@@ -800,7 +971,11 @@ function renderCartPage() {
   }
 
   cartItemsContainer.innerHTML = "";
-  cartCount.textContent = cartItems.length;
+  const totalItemCount = cartItems.reduce(function (total, item) {
+    return total + Number(item.quantity || 1);
+  }, 0);
+
+  cartCount.textContent = totalItemCount;
 
   if (cartSubtotal) {
     cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
@@ -911,6 +1086,9 @@ document.addEventListener("click", function (event) {
 if (clearCartButton) {
   clearCartButton.addEventListener("click", function () {
     localStorage.removeItem("lushCart");
+    localStorage.removeItem("lushBooking");
+    localStorage.removeItem("lushPayment");
+    localStorage.removeItem("lushConfirmedCart");
 
     renderCartPage();
     updateCartCount();
