@@ -453,7 +453,18 @@ function renderServices(category) {
 }
 
 if (serviceGrid) {
-  renderServices("all");
+  const params = new URLSearchParams(window.location.search);
+  const selectedCategory = params.get("category") || "all";
+
+  renderServices(selectedCategory);
+
+  filterChips.forEach(function (chip) {
+    chip.classList.remove("active");
+
+    if (chip.dataset.category === selectedCategory) {
+      chip.classList.add("active");
+    }
+  });
 }
 
 filterChips.forEach(function (chip) {
@@ -975,7 +986,8 @@ if (bookingForm) {
 
     localStorage.setItem("lushBooking", JSON.stringify(bookingData));
 
-    window.location.href = "confirmation.html";
+    window.location.href = "payment.html";
+
   });
 }
 
