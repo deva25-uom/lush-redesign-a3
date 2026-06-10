@@ -1217,25 +1217,58 @@ function renderServiceBookingFields() {
           <input id="service-date-${index}" type="date" required>
         </div>
 
-        <div class="form-group">
-          <label for="service-time-${index}">Preferred time</label>
-          <select id="service-time-${index}" required>
-            <option value="">Select a time</option>
-            <option value="9:00 AM">9:00 AM</option>
-            <option value="10:30 AM">10:30 AM</option>
-            <option value="12:00 PM">12:00 PM</option>
-            <option value="2:00 PM">2:00 PM</option>
-            <option value="3:30 PM">3:30 PM</option>
-          </select>
-        </div>
+        <fieldset class="form-group choice-group">
+          <legend>Preferred time</legend>
 
-        <div class="form-group form-group-full">
-          <label for="service-staff-${index}">Preferred staff member</label>
-          <select id="service-staff-${index}" required>
-            <option value="">Select a preference</option>
-            ${staffSelectOptions}
-          </select>
-        </div>
+          <div class="choice-options choice-options-small">
+            <label class="choice-option">
+              <input type="radio" name="service-time-${index}" value="9:00 AM" required>
+              <span>9:00 AM</span>
+            </label>
+
+            <label class="choice-option">
+              <input type="radio" name="service-time-${index}" value="10:30 AM">
+              <span>10:30 AM</span>
+            </label>
+
+            <label class="choice-option">
+              <input type="radio" name="service-time-${index}" value="12:00 PM">
+              <span>12:00 PM</span>
+            </label>
+
+            <label class="choice-option">
+              <input type="radio" name="service-time-${index}" value="2:00 PM">
+              <span>2:00 PM</span>
+            </label>
+
+            <label class="choice-option">
+              <input type="radio" name="service-time-${index}" value="3:30 PM">
+              <span>3:30 PM</span>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group form-group-full choice-group">
+          <legend>Preferred staff member</legend>
+
+          <div class="choice-options choice-options-inline">
+            ${staffOptions
+              .map(function (staff, staffIndex) {
+                return `
+                  <label class="choice-option">
+                    <input 
+                      type="radio" 
+                      name="service-staff-${index}" 
+                      value="${staff}" 
+                      ${staffIndex === 0 ? "required" : ""}
+                    >
+                    <span>${staff}</span>
+                  </label>
+                `;
+              })
+              .join("")}
+          </div>
+        </fieldset>
+
       </div>
     `;
 
@@ -1274,8 +1307,8 @@ if (bookingForm) {
         price: item.price,
         duration: item.duration,
         date: document.querySelector(`#service-date-${index}`).value,
-        time: document.querySelector(`#service-time-${index}`).value,
-        staff: document.querySelector(`#service-staff-${index}`).value
+        time: document.querySelector(`input[name="service-time-${index}"]:checked`).value,
+        staff: document.querySelector(`input[name="service-staff-${index}"]:checked`).value
       };
     });
 
@@ -1283,7 +1316,7 @@ if (bookingForm) {
       name: document.querySelector("#booking-name").value,
       email: document.querySelector("#booking-email").value,
       phone: document.querySelector("#booking-phone").value,
-      location: document.querySelector("#booking-location").value,
+      location: document.querySelector('input[name="booking-location"]:checked').value,
       notes: document.querySelector("#booking-notes").value,
       services: scheduledServices,
       products: productItems
@@ -1791,12 +1824,12 @@ if (paymentForm) {
       email: bookingData ? bookingData.email : document.querySelector("#payment-email").value,
       phone: bookingData ? bookingData.phone : document.querySelector("#payment-phone").value,
       cardholder: document.querySelector("#card-name").value,
-      delivery: hasProducts ? document.querySelector("#payment-delivery").value : "",
+      delivery: hasProducts ? document.querySelector('input[name="payment-delivery"]:checked').value : "",
       address: hasProducts
         ? {
             street: document.querySelector("#payment-address").value,
             suburb: document.querySelector("#payment-suburb").value,
-            state: document.querySelector("#payment-state").value,
+            state: document.querySelector('input[name="payment-state"]:checked').value,
             postcode: document.querySelector("#payment-postcode").value
           }
         : null

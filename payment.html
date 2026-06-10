@@ -88,35 +88,72 @@
                                 <label for="payment-suburb">Suburb</label>
                                 <input id="payment-suburb" type="text">
                             </div>
+                            <fieldset class="form-group choice-group">
+                                <legend>State</legend>
 
-                            <div class="form-group">
-                                <label for="payment-state">State</label>
-                                <select id="payment-state">
-                                    <option value="">Select state</option>
-                                    <option value="ACT">ACT</option>
-                                    <option value="NSW">NSW</option>
-                                    <option value="NT">NT</option>
-                                    <option value="QLD">QLD</option>
-                                    <option value="SA">SA</option>
-                                    <option value="TAS">TAS</option>
-                                    <option value="VIC">VIC</option>
-                                    <option value="WA">WA</option>
-                                </select>
-                            </div>
+                                <div class="choice-options choice-options-small">
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="ACT" required>
+                                        <span>ACT</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="NSW">
+                                        <span>NSW</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="NT">
+                                        <span>NT</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="QLD">
+                                        <span>QLD</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="SA">
+                                        <span>SA</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="TAS">
+                                        <span>TAS</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="VIC">
+                                        <span>VIC</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-state" value="WA">
+                                        <span>WA</span>
+                                    </label>
+                                </div>
+                            </fieldset>
 
                             <div class="form-group">
                                 <label for="payment-postcode">Postcode</label>
                                 <input id="payment-postcode" type="text">
                             </div>
+                            <fieldset class="form-group choice-group">
+                                <legend>Delivery option</legend>
 
-                            <div class="form-group">
-                                <label for="payment-delivery">Delivery option</label>
-                                <select id="payment-delivery">
-                                    <option value="">Select an option</option>
-                                    <option value="Standard delivery">Standard delivery</option>
-                                    <option value="Express delivery">Express delivery</option>
-                                </select>
-                            </div>
+                                <div class="choice-options choice-options-inline">
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-delivery" value="Standard delivery" required>
+                                        <span>Standard delivery</span>
+                                    </label>
+
+                                    <label class="choice-option">
+                                        <input type="radio" name="payment-delivery" value="Express delivery">
+                                        <span>Express delivery</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+
                         </div>
                     </div>
 
