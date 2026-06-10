@@ -2100,6 +2100,41 @@ a{
   color: var(--color-primary-dark);
 }
 
+@media (max-width: 47.99rem) {
+  .detail-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .detail-content {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .detail-content h1,
+  .detail-intro,
+  .detail-info-block,
+  .detail-info-block p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-actions .add-cart-btn {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .detail-actions .text-link {
+    white-space: normal;
+  }
+}
 
 @media (min-width: 48rem) {
   .detail-page {
@@ -2944,22 +2979,22 @@ a{
 }
 
 .confirmation-hero-layout {
-  min-height: 70vh;
   display: grid;
   gap: var(--space-lg);
   margin-bottom: var(--space-lg);
-  padding-bottom: 0.35rem;
+  padding: 2rem 0 var(--space-lg);
   border-bottom: 1.5px solid var(--color-border);
 }
 
 .confirmation-heading {
-  align-self: end;
+  align-self: start;
+  margin-bottom: 0;
 }
 
 .confirmation-customer-card {
   background: var(--color-surface);
   padding: var(--space-md);
-  align-self: center;
+  align-self: start;
 }
 
 .confirmation-customer-card h2 {
@@ -2967,12 +3002,12 @@ a{
   font-size: 1.25rem;
   letter-spacing: -0.03em;
 }
+
 @media (max-width: 47.99rem) {
   .confirmation-hero-layout {
-    min-height: auto;
+    grid-template-columns: 1fr;
     gap: var(--space-md);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-md);
+    padding: 1.5rem 0 var(--space-md);
   }
 
   .confirmation-heading {
@@ -3015,9 +3050,10 @@ a{
   }
 
   .confirmation-hero-layout {
-    min-height: 70vh;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: stretch;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: start;
+    gap: var(--space-xl);
+    padding-top: 3rem;
   }
 
   .confirmation-heading {
@@ -3025,7 +3061,8 @@ a{
   }
 
   .confirmation-customer-card {
-    align-self: center;
+    align-self: start;
     padding: var(--space-lg);
+    margin-top: 1rem;
   }
 }
